@@ -224,23 +224,24 @@ service cloud.firestore {
         <div className="p-6 sm:p-7 rounded-3xl bg-white border border-rose-100 shadow-sm space-y-4">
           <h3 className="text-sm font-bold font-serif text-[#3B1E32] uppercase tracking-wider flex items-center gap-2.5">
             <span className="w-6 h-6 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">4</span>
-            <span>Colocar tus Credenciales & Publicar en GitHub Pages</span>
+            <span>Credenciales de Firebase & Alerta de Seguridad de GitHub</span>
           </h3>
           <p className="leading-relaxed">
-            En la configuración de tu proyecto Firebase (ícono de engranaje &gt; <em>Configuración del proyecto</em> &gt; <em>Tus apps</em> &gt; Web), copia el objeto <code className="text-rose-600 font-mono text-[11px]">firebaseConfig</code> y colócalo en <code className="text-[#3B1E32] font-semibold">src/firebase/firebaseConfig.json</code> o en tu archivo <code className="text-[#3B1E32] font-semibold">.env</code>:
+            Las aplicaciones web de Firebase utilizan un archivo <code className="text-[#3B1E32] font-semibold">firebase-applet-config.json</code> en la raíz del proyecto para conectar con el SDK en el navegador.
           </p>
 
-          <pre className="p-4 rounded-2xl bg-[#2A1724] border border-rose-950/60 text-[11px] font-mono text-rose-100 shadow-inner">
-{`// src/firebase/firebaseConfig.json
-{
-  "apiKey": "AIzaSy...",
-  "authDomain": "salaviplatam-5d06b.firebaseapp.com",
-  "projectId": "salaviplatam-5d06b",
-  "storageBucket": "salaviplatam-5d06b.appspot.com",
-  "messagingSenderId": "123456789",
-  "appId": "1:123456789:web:abcdef"
-}`}
-          </pre>
+          <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-200 text-amber-900 space-y-2">
+            <div className="flex items-center gap-2 font-bold text-xs text-amber-900">
+              <ShieldCheck className="w-4 h-4 text-amber-700" />
+              <span>¿Qué significa la alerta "Secret scanning / Google API Key" en GitHub?</span>
+            </div>
+            <p className="text-[11px] leading-relaxed text-amber-800">
+              GitHub escanea automáticamente cualquier clave que comience con <code className="font-mono bg-amber-100 px-1 py-0.5 rounded text-amber-900">AIzaSy...</code>. En Firebase Web, la API Key <strong>no es una clave secreta administrativa</strong>, sino un identificador público necesario para que los navegadores ubiquen tu base de datos (la seguridad real la proporcionan las <strong>Reglas de Firestore</strong> que configuraste en el Paso 2).
+            </p>
+            <p className="text-[11px] leading-relaxed text-amber-800">
+              <strong>Cómo resolver la alerta en GitHub:</strong> Entra en la alerta de GitHub, pulsa el botón <strong>"Close alert"</strong> (Cerrar alerta) en la esquina superior derecha y selecciona <strong>"False positive"</strong> (Falso positivo) o <strong>"Won't fix"</strong>.
+            </p>
+          </div>
 
           <div className="pt-2 space-y-2">
             <h4 className="font-bold text-[#3B1E32] flex items-center gap-1.5 text-xs">
