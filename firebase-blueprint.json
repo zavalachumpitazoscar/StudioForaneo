@@ -1,0 +1,165 @@
+{
+  "entities": {
+    "ServiceItem": {
+      "title": "ServiceItem",
+      "description": "Servicios ofrecidos por Studio Foráneas (redes sociales, eventos, bodas, shoot)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "nombre": { "type": "string", "maxLength": 200 },
+        "categoria": { "type": "string", "enum": ["redes", "eventos", "shoot", "bodas", "otro"] },
+        "descripcion": { "type": "string", "maxLength": 2000 },
+        "detallesIncluidos": { "type": "array" },
+        "precio": { "type": "string", "maxLength": 100 },
+        "precioNumero": { "type": "number" },
+        "imagenUrl": { "type": "string", "maxLength": 2000 },
+        "destacado": { "type": "boolean" },
+        "publicado": { "type": "boolean" },
+        "orden": { "type": "number" }
+      },
+      "required": ["id", "nombre", "categoria", "descripcion", "imagenUrl", "publicado", "orden"]
+    },
+    "PortfolioItem": {
+      "title": "PortfolioItem",
+      "description": "Trabajos y fotografías del portafolio",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "titulo": { "type": "string", "maxLength": 200 },
+        "descripcion": { "type": "string", "maxLength": 1000 },
+        "categoria": { "type": "string", "enum": ["bodas", "eventos", "marcas", "retratos", "reels"] },
+        "imagenUrl": { "type": "string", "maxLength": 2000 },
+        "fecha": { "type": "string", "maxLength": 50 },
+        "publicado": { "type": "boolean" },
+        "orden": { "type": "number" }
+      },
+      "required": ["id", "titulo", "categoria", "imagenUrl", "publicado", "orden"]
+    },
+    "VideoItem": {
+      "title": "VideoItem",
+      "description": "Reels y videos audiovisuales",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "titulo": { "type": "string", "maxLength": 200 },
+        "descripcion": { "type": "string", "maxLength": 1000 },
+        "categoria": { "type": "string", "enum": ["reels", "bodas", "eventos", "comercial"] },
+        "videoUrl": { "type": "string", "maxLength": 2000 },
+        "thumbnailUrl": { "type": "string", "maxLength": 2000 },
+        "publicado": { "type": "boolean" },
+        "orden": { "type": "number" }
+      },
+      "required": ["id", "titulo", "categoria", "videoUrl", "publicado", "orden"]
+    },
+    "OfferItem": {
+      "title": "OfferItem",
+      "description": "Promociones y ofertas de temporada",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "titulo": { "type": "string", "maxLength": 200 },
+        "descripcion": { "type": "string", "maxLength": 1000 },
+        "descuentoTexto": { "type": "string", "maxLength": 50 },
+        "imagenUrl": { "type": "string", "maxLength": 2000 },
+        "textoBoton": { "type": "string", "maxLength": 100 },
+        "enlaceUrl": { "type": "string", "maxLength": 2000 },
+        "fechaInicio": { "type": "string", "maxLength": 50 },
+        "fechaFin": { "type": "string", "maxLength": 50 },
+        "activo": { "type": "boolean" },
+        "prioridad": { "type": "number" }
+      },
+      "required": ["id", "titulo", "descripcion", "textoBoton", "fechaInicio", "fechaFin", "activo", "prioridad"]
+    },
+    "ServiceRequest": {
+      "title": "ServiceRequest",
+      "description": "Solicitudes de cotización enviadas por clientes",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "clienteNombre": { "type": "string", "maxLength": 200 },
+        "correo": { "type": "string", "maxLength": 200 },
+        "telefono": { "type": "string", "maxLength": 50 },
+        "servicioSolicitado": { "type": "string", "maxLength": 200 },
+        "fechaEvento": { "type": "string", "maxLength": 50 },
+        "lugar": { "type": "string", "maxLength": 200 },
+        "detalles": { "type": "string", "maxLength": 2000 },
+        "presupuestoAprox": { "type": "string", "maxLength": 100 },
+        "comoNosConocio": { "type": "string", "maxLength": 100 },
+        "estado": { "type": "string", "enum": ["PENDIENTE", "CONTACTADO", "COTIZADO", "CONFIRMADO", "CANCELADO", "FINALIZADO"] },
+        "observacionesInternas": { "type": "string", "maxLength": 2000 },
+        "creadoEn": { "type": "string", "maxLength": 100 },
+        "actualizadoEn": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["id", "clienteNombre", "correo", "telefono", "servicioSolicitado", "fechaEvento", "lugar", "detalles", "estado", "creadoEn"]
+    },
+    "SiteConfig": {
+      "title": "SiteConfig",
+      "description": "Configuración general e información de contacto del sitio web",
+      "type": "object",
+      "properties": {
+        "nombreComercial": { "type": "string", "maxLength": 100 },
+        "lema": { "type": "string", "maxLength": 200 },
+        "descripcion": { "type": "string", "maxLength": 2000 },
+        "heroTitulo": { "type": "string", "maxLength": 200 },
+        "heroSubtitulo": { "type": "string", "maxLength": 500 },
+        "heroImagen": { "type": "string", "maxLength": 2000 },
+        "heroVideoUrl": { "type": "string", "maxLength": 2000 },
+        "whatsappPrincipal": { "type": "string", "maxLength": 50 },
+        "whatsappSecundario": { "type": "string", "maxLength": 50 },
+        "correo": { "type": "string", "maxLength": 200 },
+        "direccion": { "type": "string", "maxLength": 200 },
+        "horarios": { "type": "string", "maxLength": 100 },
+        "instagramUrl": { "type": "string", "maxLength": 500 },
+        "facebookUrl": { "type": "string", "maxLength": 500 },
+        "tiktokUrl": { "type": "string", "maxLength": 500 },
+        "youtubeUrl": { "type": "string", "maxLength": 500 },
+        "footerTexto": { "type": "string", "maxLength": 500 }
+      },
+      "required": ["nombreComercial", "whatsappPrincipal", "correo"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Perfil de usuario y roles de acceso",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 200 },
+        "nombre": { "type": "string", "maxLength": 200 },
+        "rol": { "type": "string", "enum": ["ADMIN", "CLIENTE"] },
+        "activo": { "type": "boolean" },
+        "creadoEn": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["uid", "email", "nombre", "rol", "activo", "creadoEn"]
+    }
+  },
+  "firestore": {
+    "/services/{serviceId}": {
+      "schema": { "$ref": "#/entities/ServiceItem" },
+      "description": "Catálogo de servicios"
+    },
+    "/portfolio/{itemId}": {
+      "schema": { "$ref": "#/entities/PortfolioItem" },
+      "description": "Galería de fotos y trabajos"
+    },
+    "/videos/{videoId}": {
+      "schema": { "$ref": "#/entities/VideoItem" },
+      "description": "Reels y producciones de video"
+    },
+    "/offers/{offerId}": {
+      "schema": { "$ref": "#/entities/OfferItem" },
+      "description": "Banners y promociones activas"
+    },
+    "/requests/{requestId}": {
+      "schema": { "$ref": "#/entities/ServiceRequest" },
+      "description": "Cotizaciones enviadas por clientes"
+    },
+    "/site_config/{configId}": {
+      "schema": { "$ref": "#/entities/SiteConfig" },
+      "description": "Ajustes de contacto y marca del sitio"
+    },
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Perfiles y permisos de usuario"
+    }
+  }
+}

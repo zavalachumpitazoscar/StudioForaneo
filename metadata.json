@@ -1,0 +1,6 @@
+{
+  "name": "Studio Foráneas - Producción Audiovisual & Estrategia Digital",
+  "description": "Sitio web oficial y panel administrativo de Studio Foráneas. Creación de contenido para redes sociales, producción audiovisual, cobertura de eventos y sesiones fotográficas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
