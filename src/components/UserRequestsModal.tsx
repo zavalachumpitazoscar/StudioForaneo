@@ -84,8 +84,8 @@ export const UserRequestsModal: React.FC<UserRequestsModalProps> = ({
       case 'CANCELADO':
         return {
           label: 'Cancelado',
-          classes: 'bg-rose-50 text-rose-800 border-rose-200',
-          dot: 'bg-rose-500'
+          classes: 'bg-purple-50 text-purple-900 border-purple-200',
+          dot: 'bg-purple-500'
         };
       case 'FINALIZADO':
         return {
@@ -109,19 +109,19 @@ export const UserRequestsModal: React.FC<UserRequestsModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#3B1E32]/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-rose-100 overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#241235]/60 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-purple-100 overflow-hidden flex flex-col max-h-[90vh]">
         {/* Modal Header */}
-        <div className="p-6 bg-gradient-to-r from-rose-50/80 via-pink-50/40 to-white border-b border-rose-100 flex items-center justify-between">
+        <div className="p-6 bg-gradient-to-r from-rose-50/80 via-pink-50/40 to-white border-b border-purple-100 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-rose-100/80 border border-rose-200 flex items-center justify-center text-rose-600">
+            <div className="w-10 h-10 rounded-2xl bg-purple-100/80 border border-purple-200 flex items-center justify-center text-purple-700">
               <FileText className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-lg font-bold font-serif text-[#3B1E32]">
+              <h3 className="text-lg font-bold font-serif text-[#241235]">
                 Mis Solicitudes de Cotización
               </h3>
-              <p className="text-xs text-[#5C4054]">
+              <p className="text-xs text-[#554064]">
                 Historial y estado de tus proyectos consultados con Studio Foráneas
               </p>
             </div>
@@ -132,9 +132,9 @@ export const UserRequestsModal: React.FC<UserRequestsModalProps> = ({
               onClick={loadRequests}
               disabled={loading}
               title="Actualizar estado"
-              className="p-2 rounded-xl text-stone-500 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
+              className="p-2 rounded-xl text-stone-500 hover:text-purple-700 hover:bg-purple-50 transition-colors cursor-pointer"
             >
-              <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-rose-600' : ''}`} />
+              <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-purple-700' : ''}`} />
             </button>
             <button
               onClick={onClose}
@@ -149,21 +149,21 @@ export const UserRequestsModal: React.FC<UserRequestsModalProps> = ({
         <div className="p-6 overflow-y-auto space-y-4 flex-1">
           {loading ? (
             <div className="py-16 text-center space-y-3">
-              <div className="w-8 h-8 border-3 border-rose-500 border-t-transparent rounded-full animate-spin mx-auto" />
-              <p className="text-xs font-medium text-[#5C4054]">
+              <div className="w-8 h-8 border-3 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto" />
+              <p className="text-xs font-medium text-[#554064]">
                 Cargando tus solicitudes...
               </p>
             </div>
           ) : requests.length === 0 ? (
             <div className="py-12 text-center space-y-4">
-              <div className="w-14 h-14 rounded-full bg-rose-50 border border-rose-100 mx-auto flex items-center justify-center text-rose-400">
+              <div className="w-14 h-14 rounded-full bg-purple-50 border border-purple-100 mx-auto flex items-center justify-center text-purple-500">
                 <FileText className="w-7 h-7" />
               </div>
               <div className="space-y-1">
-                <p className="text-sm font-bold text-[#3B1E32]">
+                <p className="text-sm font-bold text-[#241235]">
                   Aún no has enviado solicitudes de cotización
                 </p>
-                <p className="text-xs text-[#5C4054] max-w-sm mx-auto">
+                <p className="text-xs text-[#554064] max-w-sm mx-auto">
                   ¿Tienes un evento, boda, sesión fotográfica o proyecto de video en mente? Envíanos tu idea para cotizarte sin compromiso.
                 </p>
               </div>
@@ -173,7 +173,7 @@ export const UserRequestsModal: React.FC<UserRequestsModalProps> = ({
                   onClose();
                   onRequestNewQuote();
                 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-bold shadow-md shadow-rose-200 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-xs font-bold shadow-md shadow-purple-500/20 transition-all cursor-pointer"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>Solicitar una Cotización Ahora</span>
@@ -187,15 +187,15 @@ export const UserRequestsModal: React.FC<UserRequestsModalProps> = ({
                 return (
                   <div
                     key={req.id}
-                    className="p-5 rounded-2xl bg-white border border-rose-100/90 hover:border-rose-300 hover:shadow-md transition-all space-y-3 relative group"
+                    className="p-5 rounded-2xl bg-white border border-purple-100/90 hover:border-purple-300 hover:shadow-md transition-all space-y-3 relative group"
                   >
                     {/* Header line: Service & Status */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <div>
-                        <span className="text-xs font-bold text-rose-600 uppercase tracking-wider block">
+                        <span className="text-xs font-bold text-purple-700 uppercase tracking-wider block">
                           Servicio Solicitado
                         </span>
-                        <h4 className="text-base font-bold font-serif text-[#3B1E32]">
+                        <h4 className="text-base font-bold font-serif text-[#241235]">
                           {req.servicioSolicitado}
                         </h4>
                       </div>
@@ -209,18 +209,18 @@ export const UserRequestsModal: React.FC<UserRequestsModalProps> = ({
                     </div>
 
                     {/* Metadata Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#5C4054] bg-[#FFF9FA] p-3 rounded-xl border border-rose-100/60">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#554064] bg-[#FAF8FD] p-3 rounded-xl border border-purple-100/60">
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+                        <Calendar className="w-3.5 h-3.5 text-purple-600 shrink-0" />
                         <span>Fecha Evento: <strong>{req.fechaEvento || 'Por coordinar'}</strong></span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <MapPin className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+                        <MapPin className="w-3.5 h-3.5 text-purple-600 shrink-0" />
                         <span>Lugar: <strong>{req.lugar || 'Lima / Por definir'}</strong></span>
                       </div>
                       {req.presupuestoAprox && (
                         <div className="flex items-center gap-2 sm:col-span-2">
-                          <DollarSign className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+                          <DollarSign className="w-3.5 h-3.5 text-purple-600 shrink-0" />
                           <span>Presupuesto Aprox: <strong>{req.presupuestoAprox}</strong></span>
                         </div>
                       )}
@@ -228,14 +228,14 @@ export const UserRequestsModal: React.FC<UserRequestsModalProps> = ({
 
                     {/* Request Details */}
                     {req.detalles && (
-                      <div className="text-xs text-[#5C4054] bg-stone-50/60 p-3 rounded-xl border border-stone-100">
-                        <p className="font-semibold text-[#3B1E32] mb-0.5">Detalles del proyecto:</p>
+                      <div className="text-xs text-[#554064] bg-stone-50/60 p-3 rounded-xl border border-stone-100">
+                        <p className="font-semibold text-[#241235] mb-0.5">Detalles del proyecto:</p>
                         <p className="line-clamp-3 text-stone-600">{req.detalles}</p>
                       </div>
                     )}
 
                     {/* Footer Actions */}
-                    <div className="pt-2 border-t border-rose-100/70 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                    <div className="pt-2 border-t border-purple-100/70 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                       <span className="text-[11px] text-stone-400">
                         Enviada el: {req.creadoEn ? new Date(req.creadoEn).toLocaleDateString() : 'Reciente'} • ID: <code className="text-[10px] text-stone-500">{req.id}</code>
                       </span>
@@ -262,7 +262,7 @@ export const UserRequestsModal: React.FC<UserRequestsModalProps> = ({
               onClose();
               onRequestNewQuote();
             }}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 hover:text-rose-700 cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 hover:text-purple-800 cursor-pointer"
           >
             <Sparkles className="w-3.5 h-3.5" />
             <span>+ Nueva Solicitud de Cotización</span>
@@ -270,7 +270,7 @@ export const UserRequestsModal: React.FC<UserRequestsModalProps> = ({
 
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-[#3B1E32] text-xs font-semibold cursor-pointer transition-colors"
+            className="px-4 py-2 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-[#241235] text-xs font-semibold cursor-pointer transition-colors"
           >
             Cerrar
           </button>

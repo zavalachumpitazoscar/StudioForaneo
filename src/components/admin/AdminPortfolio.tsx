@@ -138,16 +138,16 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-rose-100 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-purple-100 shadow-sm">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-rose-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
             <span>Galería Visual</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#33182B]">
+          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#241235]">
             Gestión de Portafolio Fotográfico
           </h2>
-          <p className="text-xs sm:text-sm text-[#5E4758]">
+          <p className="text-xs sm:text-sm text-[#554064]">
             Agrega y organiza las fotos de bodas, campañas de moda y eventos mediante enlaces de Google Drive o web.
           </p>
         </div>
@@ -155,15 +155,15 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
         <div className="flex items-center gap-2.5">
           <button
             onClick={() => setGuideOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#FFF9FA] hover:bg-rose-50 text-rose-700 font-semibold text-xs border border-rose-200 transition-colors cursor-pointer shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#FAF8FD] hover:bg-purple-50 text-purple-800 font-semibold text-xs border border-purple-200 transition-colors cursor-pointer shadow-2xs"
           >
-            <BookOpen className="w-3.5 h-3.5 text-rose-600" />
+            <BookOpen className="w-3.5 h-3.5 text-purple-700" />
             <span>Guía de Portafolio</span>
           </button>
 
           <button
             onClick={handleStartCreate}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-semibold tracking-wide transition-all cursor-pointer shadow-md shadow-rose-200"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-xs font-semibold tracking-wide transition-all cursor-pointer shadow-md shadow-purple-500/20"
           >
             <Plus className="w-4 h-4" />
             <span>Nueva Fotografía</span>
@@ -173,19 +173,19 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
 
       {/* Editor Form Modal */}
       {editingItem && (
-        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-rose-200 shadow-xl space-y-6">
-          <div className="flex items-center justify-between border-b border-rose-100 pb-4">
+        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-purple-200 shadow-xl space-y-6">
+          <div className="flex items-center justify-between border-b border-purple-100 pb-4">
             <div className="space-y-0.5">
-              <span className="text-xs font-bold text-rose-600 uppercase tracking-widest">
+              <span className="text-xs font-bold text-purple-700 uppercase tracking-widest">
                 {isCreating ? 'Agregar al Portafolio' : 'Modificación'}
               </span>
-              <h3 className="text-xl font-bold font-serif text-[#33182B]">
+              <h3 className="text-xl font-bold font-serif text-[#241235]">
                 {isCreating ? 'Nueva Fotografía' : `Editar: ${editingItem.titulo}`}
               </h3>
             </div>
             <button
               onClick={() => setEditingItem(null)}
-              className="text-xs font-semibold px-3 py-1.5 rounded-xl text-[#5E4758] hover:text-[#33182B] hover:bg-rose-50 border border-rose-200"
+              className="text-xs font-semibold px-3 py-1.5 rounded-xl text-[#554064] hover:text-[#241235] hover:bg-purple-50 border border-purple-200"
             >
               Cancelar
             </button>
@@ -194,7 +194,7 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
           <form onSubmit={handleSave} className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Título de la Fotografía o Sesión *
                 </label>
                 <input
@@ -203,18 +203,18 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
                   placeholder="Ej. Boda Camila & Mateo en Cieneguilla"
                   value={editingItem.titulo}
                   onChange={e => setEditingItem({ ...editingItem, titulo: e.target.value })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Categoría de la Galería
                 </label>
                 <select
                   value={editingItem.categoria}
                   onChange={e => setEditingItem({ ...editingItem, categoria: e.target.value as any })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 >
                   <option value="bodas">Bodas & Matrimonios</option>
                   <option value="moda">Campañas & Moda</option>
@@ -226,7 +226,7 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-xs font-bold text-[#33182B]">
+              <label className="block text-xs font-bold text-[#241235]">
                 Descripción o Créditos
               </label>
               <textarea
@@ -234,12 +234,12 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
                 placeholder="Detalles de la sesión, cliente o locación..."
                 value={editingItem.descripcion}
                 onChange={e => setEditingItem({ ...editingItem, descripcion: e.target.value })}
-                className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none resize-none"
+                className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none resize-none"
               />
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-xs font-bold text-[#33182B]">
+              <label className="block text-xs font-bold text-[#241235]">
                 URL de Imagen (Enlace Compartido de Google Drive o Link Directo) *
               </label>
               <input
@@ -248,7 +248,7 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
                 placeholder="https://drive.google.com/file/d/1.../view?usp=sharing"
                 value={editingItem.imagenUrl}
                 onChange={e => setEditingItem({ ...editingItem, imagenUrl: e.target.value })}
-                className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
               />
               <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs flex items-center gap-2">
                 <Link2 className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -260,19 +260,19 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Fecha
                 </label>
                 <input
                   type="date"
                   value={editingItem.fecha}
                   onChange={e => setEditingItem({ ...editingItem, fecha: e.target.value })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Posición / Orden
                 </label>
                 <input
@@ -280,37 +280,37 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
                   min={1}
                   value={editingItem.orden || 1}
                   onChange={e => setEditingItem({ ...editingItem, orden: parseInt(e.target.value) || 1 })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Checkbox Publicado */}
             <div className="pt-2">
-              <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#33182B]">
+              <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#241235]">
                 <input
                   type="checkbox"
                   checked={editingItem.publicado}
                   onChange={e => setEditingItem({ ...editingItem, publicado: e.target.checked })}
-                  className="w-4 h-4 rounded text-rose-600 focus:ring-rose-500"
+                  className="w-4 h-4 rounded text-purple-700 focus:ring-rose-500"
                 />
                 <span>Publicada en la galería visible para los clientes</span>
               </label>
             </div>
 
             {/* Form Actions */}
-            <div className="flex items-center justify-end gap-3 pt-4 border-t border-rose-100">
+            <div className="flex items-center justify-end gap-3 pt-4 border-t border-purple-100">
               <button
                 type="button"
                 onClick={() => setEditingItem(null)}
-                className="px-4 py-2.5 rounded-xl text-xs font-semibold text-[#5E4758] hover:text-[#33182B] hover:bg-rose-50 transition-colors"
+                className="px-4 py-2.5 rounded-xl text-xs font-semibold text-[#554064] hover:text-[#241235] hover:bg-purple-50 transition-colors"
               >
                 Cancelar
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-semibold tracking-wide shadow-md shadow-rose-200 transition-all cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-xs font-semibold tracking-wide shadow-md shadow-purple-500/20 transition-all cursor-pointer disabled:opacity-50"
               >
                 {loading ? 'Guardando...' : 'Guardar Fotografía'}
               </button>
@@ -326,7 +326,7 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
           return (
             <div
               key={item.id}
-              className="rounded-3xl border border-rose-100 bg-white overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-all group"
+              className="rounded-3xl border border-purple-100 bg-white overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-all group"
             >
               <div className="relative aspect-4/3 bg-neutral-100 overflow-hidden">
                 {directImg ? (
@@ -346,7 +346,7 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
                 )}
 
                 <div className="absolute top-3 left-3">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-rose-700 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-xs">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-purple-800 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-xs">
                     {item.categoria}
                   </span>
                 </div>
@@ -362,17 +362,17 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
 
               <div className="p-4 space-y-2 flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="font-bold text-sm font-serif text-[#33182B] line-clamp-1">
+                  <h4 className="font-bold text-sm font-serif text-[#241235] line-clamp-1">
                     {item.titulo}
                   </h4>
                   {item.descripcion && (
-                    <p className="text-xs text-[#5E4758] line-clamp-2 mt-1">
+                    <p className="text-xs text-[#554064] line-clamp-2 mt-1">
                       {item.descripcion}
                     </p>
                   )}
                 </div>
 
-                <div className="flex items-center justify-between pt-3 border-t border-rose-100 text-xs">
+                <div className="flex items-center justify-between pt-3 border-t border-purple-100 text-xs">
                   <span className="text-[11px] text-neutral-400 font-mono">
                     Posición #{item.orden || 1}
                   </span>
@@ -381,7 +381,7 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
                     <button
                       onClick={() => handleTogglePublish(item)}
                       title={item.publicado ? 'Ocultar' : 'Publicar'}
-                      className="p-1.5 rounded-lg text-[#5E4758] hover:text-[#33182B] hover:bg-rose-50 transition-colors"
+                      className="p-1.5 rounded-lg text-[#554064] hover:text-[#241235] hover:bg-purple-50 transition-colors"
                     >
                       {item.publicado ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4 text-neutral-400" />}
                     </button>
@@ -389,7 +389,7 @@ export const AdminPortfolio: React.FC<AdminPortfolioProps> = ({
                     <button
                       onClick={() => handleStartEdit(item)}
                       title="Editar foto"
-                      className="p-1.5 rounded-lg text-rose-600 hover:bg-rose-50 transition-colors"
+                      className="p-1.5 rounded-lg text-purple-700 hover:bg-purple-50 transition-colors"
                     >
                       <Edit2 className="w-4 h-4" />
                     </button>

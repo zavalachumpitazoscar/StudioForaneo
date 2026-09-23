@@ -142,16 +142,16 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   return (
     <div className="space-y-8 animate-in fade-in duration-200">
       {/* Welcome Banner */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#FFF5F7] via-[#FFF9FA] to-[#FFF0F3] border border-rose-200/80 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#FAF8FD] via-[#FAF8FD] to-[#FAF8FD] border border-purple-200/80 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="space-y-1.5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-rose-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
             <span>Panel de Control General</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#33182B]">
+          <h2 className="text-2xl sm:text-3xl font-bold font-serif text-[#241235]">
             ¡Hola! Bienvenidas al Panel de Studio Foráneas
           </h2>
-          <p className="text-xs sm:text-sm text-[#5E4758]">
+          <p className="text-xs sm:text-sm text-[#554064]">
             Resumen en tiempo real de solicitudes, servicios publicados y estado del sitio web.
           </p>
         </div>
@@ -160,9 +160,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           {/* Section Guide Button */}
           <button
             onClick={() => setGuideOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-rose-50 text-rose-700 font-semibold text-xs border border-rose-200 shadow-2xs transition-all cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-purple-50 text-purple-800 font-semibold text-xs border border-purple-200 shadow-2xs transition-all cursor-pointer"
           >
-            <BookOpen className="w-4 h-4 text-rose-600" />
+            <BookOpen className="w-4 h-4 text-purple-700" />
             <span>¿Cómo funciona este Dashboard?</span>
           </button>
 
@@ -180,15 +180,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         {/* Total Solicitudes */}
         <div
           onClick={() => onNavigateTab('solicitudes')}
-          className="p-5 rounded-3xl bg-white border border-rose-100 hover:border-rose-300 hover:shadow-md cursor-pointer transition-all space-y-2 shadow-sm"
+          className="p-5 rounded-3xl bg-white border border-purple-100 hover:border-purple-300 hover:shadow-md cursor-pointer transition-all space-y-2 shadow-sm"
         >
-          <div className="flex items-center justify-between text-[#5E4758]">
+          <div className="flex items-center justify-between text-[#554064]">
             <span className="text-xs font-bold uppercase tracking-wider">Solicitudes</span>
-            <div className="w-8 h-8 rounded-xl bg-rose-50 flex items-center justify-center text-rose-600">
+            <div className="w-8 h-8 rounded-xl bg-purple-50 flex items-center justify-center text-purple-700">
               <Inbox className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-3xl font-extrabold text-[#33182B] font-serif">
+          <div className="text-3xl font-extrabold text-[#241235] font-serif">
             {totalRequests}
           </div>
           <div className="flex items-center gap-1.5 text-xs text-amber-700 font-medium">
@@ -200,32 +200,32 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         {/* Contactadas */}
         <div
           onClick={() => onNavigateTab('solicitudes')}
-          className="p-5 rounded-3xl bg-white border border-rose-100 hover:border-rose-300 hover:shadow-md cursor-pointer transition-all space-y-2 shadow-sm"
+          className="p-5 rounded-3xl bg-white border border-purple-100 hover:border-purple-300 hover:shadow-md cursor-pointer transition-all space-y-2 shadow-sm"
         >
-          <div className="flex items-center justify-between text-[#5E4758]">
+          <div className="flex items-center justify-between text-[#554064]">
             <span className="text-xs font-bold uppercase tracking-wider">Contactadas</span>
             <div className="w-8 h-8 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
               <CheckCircle className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-3xl font-extrabold text-[#33182B] font-serif">
+          <div className="text-3xl font-extrabold text-[#241235] font-serif">
             {contactedRequests}
           </div>
-          <span className="text-xs text-[#5E4758] block">En seguimiento</span>
+          <span className="text-xs text-[#554064] block">En seguimiento</span>
         </div>
 
         {/* Servicios Activos */}
         <div
           onClick={() => onNavigateTab('servicios')}
-          className="p-5 rounded-3xl bg-white border border-rose-100 hover:border-rose-300 hover:shadow-md cursor-pointer transition-all space-y-2 shadow-sm"
+          className="p-5 rounded-3xl bg-white border border-purple-100 hover:border-purple-300 hover:shadow-md cursor-pointer transition-all space-y-2 shadow-sm"
         >
-          <div className="flex items-center justify-between text-[#5E4758]">
+          <div className="flex items-center justify-between text-[#554064]">
             <span className="text-xs font-bold uppercase tracking-wider">Servicios</span>
             <div className="w-8 h-8 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
               <Layers className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-3xl font-extrabold text-[#33182B] font-serif">
+          <div className="text-3xl font-extrabold text-[#241235] font-serif">
             {activeServices}
           </div>
           <span className="text-xs text-emerald-700 font-medium block">Publicados en web</span>
@@ -234,84 +234,84 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         {/* Portafolio & Videos */}
         <div
           onClick={() => onNavigateTab('portafolio')}
-          className="p-5 rounded-3xl bg-white border border-rose-100 hover:border-rose-300 hover:shadow-md cursor-pointer transition-all space-y-2 shadow-sm"
+          className="p-5 rounded-3xl bg-white border border-purple-100 hover:border-purple-300 hover:shadow-md cursor-pointer transition-all space-y-2 shadow-sm"
         >
-          <div className="flex items-center justify-between text-[#5E4758]">
+          <div className="flex items-center justify-between text-[#554064]">
             <span className="text-xs font-bold uppercase tracking-wider">Galería & Reels</span>
             <div className="w-8 h-8 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600">
               <Camera className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-3xl font-extrabold text-[#33182B] font-serif">
+          <div className="text-3xl font-extrabold text-[#241235] font-serif">
             {totalPhotos + totalVideos}
           </div>
-          <span className="text-xs text-[#5E4758] block">{totalPhotos} fotos • {totalVideos} videos</span>
+          <span className="text-xs text-[#554064] block">{totalPhotos} fotos • {totalVideos} videos</span>
         </div>
       </div>
 
       {/* Quick Action Navigation Buttons */}
       <div className="space-y-3">
-        <h3 className="text-xs font-bold text-[#5E4758] uppercase tracking-wider">
+        <h3 className="text-xs font-bold text-[#554064] uppercase tracking-wider">
           Accesos Rápidos de Edición
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
           <button
             onClick={() => onNavigateTab('servicios')}
-            className="p-4 rounded-2xl bg-white border border-rose-100 hover:border-rose-300 hover:bg-rose-50/40 text-left transition-all shadow-xs cursor-pointer"
+            className="p-4 rounded-2xl bg-white border border-purple-100 hover:border-purple-300 hover:bg-purple-50/40 text-left transition-all shadow-xs cursor-pointer"
           >
-            <span className="block font-bold text-xs text-[#33182B]">Editar Servicios</span>
-            <span className="text-[11px] text-[#5E4758]">Modificar precios y paquetes</span>
+            <span className="block font-bold text-xs text-[#241235]">Editar Servicios</span>
+            <span className="text-[11px] text-[#554064]">Modificar precios y paquetes</span>
           </button>
 
           <button
             onClick={() => onNavigateTab('portafolio')}
-            className="p-4 rounded-2xl bg-white border border-rose-100 hover:border-rose-300 hover:bg-rose-50/40 text-left transition-all shadow-xs cursor-pointer"
+            className="p-4 rounded-2xl bg-white border border-purple-100 hover:border-purple-300 hover:bg-purple-50/40 text-left transition-all shadow-xs cursor-pointer"
           >
-            <span className="block font-bold text-xs text-[#33182B]">Subir Fotos</span>
-            <span className="text-[11px] text-[#5E4758]">Enlazar desde Google Drive</span>
+            <span className="block font-bold text-xs text-[#241235]">Subir Fotos</span>
+            <span className="text-[11px] text-[#554064]">Enlazar desde Google Drive</span>
           </button>
 
           <button
             onClick={() => onNavigateTab('promociones')}
-            className="p-4 rounded-2xl bg-white border border-rose-100 hover:border-rose-300 hover:bg-rose-50/40 text-left transition-all shadow-xs cursor-pointer"
+            className="p-4 rounded-2xl bg-white border border-purple-100 hover:border-purple-300 hover:bg-purple-50/40 text-left transition-all shadow-xs cursor-pointer"
           >
-            <span className="block font-bold text-xs text-[#33182B]">Promociones</span>
-            <span className="text-[11px] text-[#5E4758]">{activeOffers} ofertas activas</span>
+            <span className="block font-bold text-xs text-[#241235]">Promociones</span>
+            <span className="text-[11px] text-[#554064]">{activeOffers} ofertas activas</span>
           </button>
 
           <button
             onClick={() => onNavigateTab('usuarios')}
-            className="p-4 rounded-2xl bg-white border border-rose-100 hover:border-rose-300 hover:bg-rose-50/40 text-left transition-all shadow-xs cursor-pointer"
+            className="p-4 rounded-2xl bg-white border border-purple-100 hover:border-purple-300 hover:bg-purple-50/40 text-left transition-all shadow-xs cursor-pointer"
           >
-            <span className="block font-bold text-xs text-[#33182B]">Equipo & Admins</span>
-            <span className="text-[11px] text-[#5E4758]">Aprobar y activar accesos</span>
+            <span className="block font-bold text-xs text-[#241235]">Equipo & Admins</span>
+            <span className="text-[11px] text-[#554064]">Aprobar y activar accesos</span>
           </button>
 
           <button
             onClick={() => onNavigateTab('configuracion')}
-            className="p-4 rounded-2xl bg-white border border-rose-100 hover:border-rose-300 hover:bg-rose-50/40 text-left transition-all shadow-xs cursor-pointer"
+            className="p-4 rounded-2xl bg-white border border-purple-100 hover:border-purple-300 hover:bg-purple-50/40 text-left transition-all shadow-xs cursor-pointer"
           >
-            <span className="block font-bold text-xs text-[#33182B]">WhatsApp & Info</span>
-            <span className="text-[11px] text-[#5E4758]">Ajustar datos de contacto</span>
+            <span className="block font-bold text-xs text-[#241235]">WhatsApp & Info</span>
+            <span className="text-[11px] text-[#554064]">Ajustar datos de contacto</span>
           </button>
         </div>
       </div>
 
       {/* Recent Requests Section with fast status change */}
-      <div className="rounded-3xl bg-white border border-rose-100 p-6 sm:p-7 space-y-4 shadow-sm">
+      <div className="rounded-3xl bg-white border border-purple-100 p-6 sm:p-7 space-y-4 shadow-sm">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-bold font-serif text-[#33182B]">
+            <h3 className="text-lg font-bold font-serif text-[#241235]">
               Solicitudes Recientes de Clientes
             </h3>
-            <p className="text-xs text-[#5E4758]">
+            <p className="text-xs text-[#554064]">
               Registradas directamente desde el formulario del sitio web
             </p>
           </div>
 
           <button
             onClick={() => onNavigateTab('solicitudes')}
-            className="text-xs font-bold text-rose-600 hover:text-rose-700 inline-flex items-center gap-1 cursor-pointer"
+            className="text-xs font-bold text-purple-700 hover:text-purple-800 inline-flex items-center gap-1 cursor-pointer"
           >
             <span>Ver todas ({requests.length})</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -319,7 +319,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </div>
 
         {recentRequests.length === 0 ? (
-          <div className="text-center py-10 text-[#5E4758] text-xs">
+          <div className="text-center py-10 text-[#554064] text-xs">
             Aún no hay solicitudes registradas. Cuando un cliente cotice en la web, aparecerá aquí.
           </div>
         ) : (
@@ -327,11 +327,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             {recentRequests.map((req) => (
               <div
                 key={req.id}
-                className="p-4 rounded-2xl bg-[#FFF9FA] border border-rose-100/90 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-rose-300 transition-colors"
+                className="p-4 rounded-2xl bg-[#FAF8FD] border border-purple-100/90 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-purple-300 transition-colors"
               >
                 <div className="space-y-1">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-bold text-sm text-[#33182B]">
+                    <span className="font-bold text-sm text-[#241235]">
                       {req.clienteNombre}
                     </span>
                     <span className={`text-[10px] px-2.5 py-0.5 rounded-full border font-bold uppercase tracking-wider ${getStatusBadge(req.estado)}`}>
@@ -342,8 +342,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     </span>
                   </div>
 
-                  <p className="text-xs text-[#5E4758]">
-                    <strong className="text-rose-700">{req.servicioSolicitado}</strong>
+                  <p className="text-xs text-[#554064]">
+                    <strong className="text-purple-800">{req.servicioSolicitado}</strong>
                     {req.lugar ? ` • ${req.lugar}` : ''}
                   </p>
 
@@ -366,7 +366,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   <select
                     value={req.estado}
                     onChange={(e) => onUpdateStatus(req.id, e.target.value as RequestStatus)}
-                    className="text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-white border border-rose-200 text-[#33182B] focus:outline-none focus:border-rose-500"
+                    className="text-xs font-semibold px-2.5 py-1.5 rounded-xl bg-white border border-purple-200 text-[#241235] focus:outline-none focus:border-purple-500"
                   >
                     <option value="PENDIENTE">🟡 Pendiente</option>
                     <option value="CONTACTADO">🔵 Contactado</option>

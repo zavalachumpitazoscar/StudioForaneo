@@ -151,25 +151,25 @@ export const AdminUsers: React.FC = () => {
   return (
     <div className="space-y-6 text-left animate-in fade-in duration-200">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-rose-100 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-purple-100 shadow-sm">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <Users className="w-3.5 h-3.5 text-rose-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-wider">
+            <Users className="w-3.5 h-3.5 text-purple-700" />
             <span>Control de Roles & Accesos</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#3B1E32]">
+          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#241235]">
             Gestión de Equipo & Activación de Administradores
           </h2>
-          <p className="text-xs text-[#5C4054]">
+          <p className="text-xs text-[#554064]">
             Control de usuarios registrados en Firebase, aprobación de nuevos administradores y eliminación segura.
           </p>
         </div>
 
         <button
           onClick={loadUsers}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[#FFF9FA] hover:bg-rose-50 border border-rose-200 text-[#3B1E32] text-xs font-semibold cursor-pointer transition-colors shrink-0 shadow-2xs"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[#FAF8FD] hover:bg-purple-50 border border-purple-200 text-[#241235] text-xs font-semibold cursor-pointer transition-colors shrink-0 shadow-2xs"
         >
-          <RefreshCw className={`w-3.5 h-3.5 text-rose-600 ${loading ? 'animate-spin' : ''}`} />
+          <RefreshCw className={`w-3.5 h-3.5 text-purple-700 ${loading ? 'animate-spin' : ''}`} />
           <span>Actualizar Lista</span>
         </button>
       </div>
@@ -180,7 +180,7 @@ export const AdminUsers: React.FC = () => {
           className={`p-4 rounded-2xl text-xs font-semibold flex items-center gap-3 transition-all ${
             feedbackMessage.type === 'success'
               ? 'bg-emerald-50 text-emerald-900 border border-emerald-300 shadow-md shadow-emerald-100'
-              : 'bg-rose-50 text-rose-900 border border-rose-300 shadow-md shadow-rose-100'
+              : 'bg-purple-50 text-purple-950 border border-purple-300 shadow-md shadow-purple-900/10'
           }`}
         >
           <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
@@ -189,14 +189,14 @@ export const AdminUsers: React.FC = () => {
       )}
 
       {/* DEDICATED MODULE: Activación de Administradores Inactivos */}
-      <div className="rounded-3xl bg-white border border-rose-100 p-5 sm:p-6 space-y-4 shadow-sm">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-rose-100 pb-4">
+      <div className="rounded-3xl bg-white border border-purple-100 p-5 sm:p-6 space-y-4 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-purple-100 pb-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 shadow-xs">
               <ShieldAlert className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-sm font-bold font-serif text-[#3B1E32] flex items-center gap-2">
+              <h3 className="text-sm font-bold font-serif text-[#241235] flex items-center gap-2">
                 <span>Módulo de Aprobación de Administradores</span>
                 {pendingAdmins.length > 0 && (
                   <span className="px-2.5 py-0.5 rounded-full bg-amber-500 text-white text-[10px] font-extrabold animate-pulse">
@@ -204,7 +204,7 @@ export const AdminUsers: React.FC = () => {
                   </span>
                 )}
               </h3>
-              <p className="text-[11px] text-[#5C4054]">
+              <p className="text-[11px] text-[#554064]">
                 Los usuarios que se registraron solicitando permisos de administrador inician inactivos por seguridad hasta que los apruebes aquí.
               </p>
             </div>
@@ -224,19 +224,19 @@ export const AdminUsers: React.FC = () => {
               {pendingAdmins.map(u => (
                 <div
                   key={u.uid}
-                  className="p-4 rounded-2xl bg-[#FFF9FA] border border-amber-200 space-y-3 relative overflow-hidden group hover:border-amber-300 transition-colors shadow-2xs"
+                  className="p-4 rounded-2xl bg-[#FAF8FD] border border-amber-200 space-y-3 relative overflow-hidden group hover:border-amber-300 transition-colors shadow-2xs"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="space-y-0.5">
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-sm text-[#3B1E32]">
+                        <span className="font-bold text-sm text-[#241235]">
                           {u.nombre || 'Administrador sin nombre'}
                         </span>
                         <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-bold">
                           Inactivo
                         </span>
                       </div>
-                      <p className="text-xs text-[#5C4054]">{u.email}</p>
+                      <p className="text-xs text-[#554064]">{u.email}</p>
                       <p className="text-[10px] text-stone-400">
                         Registrado: {u.creadoEn ? new Date(u.creadoEn).toLocaleString() : 'Reciente'}
                       </p>
@@ -251,7 +251,7 @@ export const AdminUsers: React.FC = () => {
                     </button>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-rose-100/60">
+                  <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-purple-100/60">
                     <button
                       onClick={() => handleActivateAdmin(u)}
                       disabled={updatingUid === u.uid}
@@ -264,10 +264,10 @@ export const AdminUsers: React.FC = () => {
                     <button
                       onClick={() => handleConvertToClient(u)}
                       disabled={updatingUid === u.uid}
-                      className="inline-flex items-center justify-center gap-1 py-2 px-3 rounded-xl bg-white hover:bg-rose-50 border border-rose-200 text-[#3B1E32] text-xs font-medium transition-colors cursor-pointer disabled:opacity-50"
+                      className="inline-flex items-center justify-center gap-1 py-2 px-3 rounded-xl bg-white hover:bg-purple-50 border border-purple-200 text-[#241235] text-xs font-medium transition-colors cursor-pointer disabled:opacity-50"
                       title="Convertir en usuario cliente normal"
                     >
-                      <UserCheck className="w-3.5 h-3.5 text-rose-500" />
+                      <UserCheck className="w-3.5 h-3.5 text-purple-600" />
                       <span>Solo Cliente</span>
                     </button>
                   </div>
@@ -276,11 +276,11 @@ export const AdminUsers: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="p-4 rounded-2xl bg-[#FFF9FA] border border-rose-100 text-xs text-[#5C4054] flex items-center gap-3">
+          <div className="p-4 rounded-2xl bg-[#FAF8FD] border border-purple-100 text-xs text-[#554064] flex items-center gap-3">
             <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
             <div>
-              <p className="font-bold text-[#3B1E32]">No hay administradores pendientes de activación.</p>
-              <p className="text-[11px] text-[#5C4054]">
+              <p className="font-bold text-[#241235]">No hay administradores pendientes de activación.</p>
+              <p className="text-[11px] text-[#554064]">
                 Todos los administradores registrados actualmente están activos y tienen acceso regular al panel.
               </p>
             </div>
@@ -289,9 +289,9 @@ export const AdminUsers: React.FC = () => {
       </div>
 
       {/* FIREBASE CONSOLE MANUAL ACTIVATION GUIDE */}
-      <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-rose-50/70 to-pink-50/40 border border-rose-200/80 text-xs text-[#5C4054] space-y-3 shadow-2xs">
+      <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-rose-50/70 to-pink-50/40 border border-purple-200/80 text-xs text-[#554064] space-y-3 shadow-2xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div className="flex items-center gap-2 text-rose-700 font-bold uppercase tracking-wider text-[11px]">
+          <div className="flex items-center gap-2 text-purple-800 font-bold uppercase tracking-wider text-[11px]">
             <Flame className="w-4 h-4 text-orange-500" />
             <span>Opción 2: Activar manualmente desde Firebase Console</span>
           </div>
@@ -299,39 +299,39 @@ export const AdminUsers: React.FC = () => {
             href="https://console.firebase.google.com/project/salaviplatam-5d06b/firestore/databases/-default-/data/~2Fusers"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-rose-700 hover:text-rose-800 font-bold hover:underline"
+            className="inline-flex items-center gap-1.5 text-xs text-purple-800 hover:text-purple-900 font-bold hover:underline"
           >
             <span>Ir a Colección users</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>
-        <p className="leading-relaxed text-[11px] text-[#5C4054]">
+        <p className="leading-relaxed text-[11px] text-[#554064]">
           Si prefieres activarlo o editarlo directamente en la base de datos de Google Firebase:
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-          <div className="p-3.5 rounded-2xl bg-white border border-rose-200/80 space-y-1 shadow-2xs">
-            <span className="text-rose-600 font-bold text-xs">Paso 1</span>
-            <p className="text-[11px] text-[#5C4054]">
-              Abre <strong>Firestore Database</strong> en tu consola de Firebase <code className="text-rose-600 font-mono text-[10px]">salaviplatam-5d06b</code>.
+          <div className="p-3.5 rounded-2xl bg-white border border-purple-200/80 space-y-1 shadow-2xs">
+            <span className="text-purple-700 font-bold text-xs">Paso 1</span>
+            <p className="text-[11px] text-[#554064]">
+              Abre <strong>Firestore Database</strong> en tu consola de Firebase <code className="text-purple-700 font-mono text-[10px]">salaviplatam-5d06b</code>.
             </p>
           </div>
-          <div className="p-3.5 rounded-2xl bg-white border border-rose-200/80 space-y-1 shadow-2xs">
-            <span className="text-rose-600 font-bold text-xs">Paso 2</span>
-            <p className="text-[11px] text-[#5C4054]">
+          <div className="p-3.5 rounded-2xl bg-white border border-purple-200/80 space-y-1 shadow-2xs">
+            <span className="text-purple-700 font-bold text-xs">Paso 2</span>
+            <p className="text-[11px] text-[#554064]">
               Entra a la colección <strong>users</strong> y haz clic en el documento con el UID del usuario.
             </p>
           </div>
-          <div className="p-3.5 rounded-2xl bg-white border border-rose-200/80 space-y-1 shadow-2xs">
-            <span className="text-rose-600 font-bold text-xs">Paso 3</span>
-            <p className="text-[11px] text-[#5C4054]">
-              Cambia el campo <code className="text-emerald-700 font-mono font-bold text-[10px]">activo: true</code> y verifica que <code className="text-rose-600 font-mono font-bold text-[10px]">rol: "ADMIN"</code>.
+          <div className="p-3.5 rounded-2xl bg-white border border-purple-200/80 space-y-1 shadow-2xs">
+            <span className="text-purple-700 font-bold text-xs">Paso 3</span>
+            <p className="text-[11px] text-[#554064]">
+              Cambia el campo <code className="text-emerald-700 font-mono font-bold text-[10px]">activo: true</code> y verifica que <code className="text-purple-700 font-mono font-bold text-[10px]">rol: "ADMIN"</code>.
             </p>
           </div>
         </div>
       </div>
 
       {/* ALL USERS DIRECTORY */}
-      <div className="rounded-3xl bg-white border border-rose-100 overflow-hidden space-y-4 p-5 sm:p-6 shadow-sm">
+      <div className="rounded-3xl bg-white border border-purple-100 overflow-hidden space-y-4 p-5 sm:p-6 shadow-sm">
         {/* Filter bar & Search */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-1.5">
@@ -339,8 +339,8 @@ export const AdminUsers: React.FC = () => {
               onClick={() => setActiveFilter('all')}
               className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeFilter === 'all'
-                  ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-sm shadow-rose-200'
-                  : 'bg-[#FFF9FA] text-[#5C4054] hover:text-rose-600 border border-rose-200'
+                  ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-sm shadow-purple-500/20'
+                  : 'bg-[#FAF8FD] text-[#554064] hover:text-purple-700 border border-purple-200'
               }`}
             >
               Todos ({users.length})
@@ -350,7 +350,7 @@ export const AdminUsers: React.FC = () => {
               className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeFilter === 'pending'
                   ? 'bg-amber-500 text-white shadow-sm shadow-amber-200'
-                  : 'bg-[#FFF9FA] text-[#5C4054] hover:text-amber-700 border border-rose-200'
+                  : 'bg-[#FAF8FD] text-[#554064] hover:text-amber-700 border border-purple-200'
               }`}
             >
               Admins Pendientes ({pendingAdmins.length})
@@ -359,8 +359,8 @@ export const AdminUsers: React.FC = () => {
               onClick={() => setActiveFilter('admins')}
               className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeFilter === 'admins'
-                  ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-sm shadow-rose-200'
-                  : 'bg-[#FFF9FA] text-[#5C4054] hover:text-rose-600 border border-rose-200'
+                  ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-sm shadow-purple-500/20'
+                  : 'bg-[#FAF8FD] text-[#554064] hover:text-purple-700 border border-purple-200'
               }`}
             >
               Administradores ({activeAdmins.length + pendingAdmins.length})
@@ -369,8 +369,8 @@ export const AdminUsers: React.FC = () => {
               onClick={() => setActiveFilter('clients')}
               className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeFilter === 'clients'
-                  ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-sm shadow-rose-200'
-                  : 'bg-[#FFF9FA] text-[#5C4054] hover:text-rose-600 border border-rose-200'
+                  ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-sm shadow-purple-500/20'
+                  : 'bg-[#FAF8FD] text-[#554064] hover:text-purple-700 border border-purple-200'
               }`}
             >
               Clientes ({clientsList.length})
@@ -384,13 +384,13 @@ export const AdminUsers: React.FC = () => {
               placeholder="Buscar por nombre, correo..."
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3.5 py-2 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] text-xs placeholder:text-stone-400 focus:outline-none focus:border-rose-500"
+              className="w-full pl-9 pr-3.5 py-2 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs placeholder:text-stone-400 focus:outline-none focus:border-purple-500"
             />
           </div>
         </div>
 
         {/* Users List Table */}
-        <div className="divide-y divide-rose-100 border border-rose-100 rounded-2xl overflow-hidden bg-white">
+        <div className="divide-y divide-rose-100 border border-purple-100 rounded-2xl overflow-hidden bg-white">
           {filteredUsers.map(u => {
             const isSelf = u.uid === currentUserProfile?.uid;
             const isOwner = u.email?.toLowerCase() === 'zavalachumpitazoscar@gmail.com';
@@ -398,15 +398,15 @@ export const AdminUsers: React.FC = () => {
             return (
               <div
                 key={u.uid}
-                className="p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-[#FFF9FA]/60 transition-colors"
+                className="p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-[#FAF8FD]/60 transition-colors"
               >
                 <div className="space-y-1">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-bold text-sm font-serif text-[#3B1E32]">
+                    <span className="font-bold text-sm font-serif text-[#241235]">
                       {u.nombre || u.email}
                     </span>
                     {isSelf && (
-                      <span className="px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 text-[10px] font-bold border border-rose-200">
+                      <span className="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 text-[10px] font-bold border border-purple-200">
                         Tu Cuenta Actual
                       </span>
                     )}
@@ -417,14 +417,14 @@ export const AdminUsers: React.FC = () => {
                     )}
                     <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${
                       u.rol === 'ADMIN'
-                        ? 'bg-rose-50 text-rose-700 border-rose-200'
+                        ? 'bg-purple-50 text-purple-800 border-purple-200'
                         : 'bg-stone-100 text-stone-600 border-stone-200'
                     }`}>
                       {u.rol}
                     </span>
                   </div>
-                  <div className="text-xs text-[#5C4054] flex flex-wrap items-center gap-x-4 gap-y-1">
-                    <span>Email: <strong className="text-[#3B1E32]">{u.email}</strong></span>
+                  <div className="text-xs text-[#554064] flex flex-wrap items-center gap-x-4 gap-y-1">
+                    <span>Email: <strong className="text-[#241235]">{u.email}</strong></span>
                     <span>UID: <code className="text-[10px] text-stone-400 font-mono">{u.uid.slice(0, 15)}...</code></span>
                     <span>Registrado: {u.creadoEn ? new Date(u.creadoEn).toLocaleDateString() : 'Reciente'}</span>
                   </div>
@@ -439,7 +439,7 @@ export const AdminUsers: React.FC = () => {
                       value={u.rol}
                       disabled={updatingUid === u.uid || isSelf || isOwner}
                       onChange={e => handleRoleChange(u, e.target.value as UserRole)}
-                      className="bg-[#FFF9FA] border border-rose-200 text-xs font-semibold rounded-xl px-2.5 py-1.5 text-[#3B1E32] focus:outline-none focus:border-rose-500 disabled:opacity-50 cursor-pointer shadow-2xs"
+                      className="bg-[#FAF8FD] border border-purple-200 text-xs font-semibold rounded-xl px-2.5 py-1.5 text-[#241235] focus:outline-none focus:border-purple-500 disabled:opacity-50 cursor-pointer shadow-2xs"
                     >
                       <option value="ADMIN">ADMIN</option>
                       <option value="CLIENTE">CLIENTE</option>
@@ -488,8 +488,8 @@ export const AdminUsers: React.FC = () => {
           })}
 
           {filteredUsers.length === 0 && (
-            <div className="text-center py-12 text-xs text-[#5C4054] space-y-1">
-              <p className="font-semibold text-[#3B1E32]">No se encontraron usuarios</p>
+            <div className="text-center py-12 text-xs text-[#554064] space-y-1">
+              <p className="font-semibold text-[#241235]">No se encontraron usuarios</p>
               <p className="text-[11px] text-stone-400">Prueba ajustando el filtro de búsqueda.</p>
             </div>
           )}

@@ -145,27 +145,27 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md bg-white rounded-3xl border border-rose-100 shadow-2xl overflow-hidden p-6 sm:p-8 space-y-5 text-left">
+      <div className="relative w-full max-w-md bg-white rounded-3xl border border-purple-100 shadow-2xl overflow-hidden p-6 sm:p-8 space-y-5 text-left">
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Cerrar"
-          className="absolute top-5 right-5 p-2 rounded-xl text-stone-400 hover:text-[#3B1E32] hover:bg-rose-50 transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 rounded-xl text-stone-400 hover:text-[#241235] hover:bg-purple-50 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Header Icon */}
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-500 p-0.5 mx-auto shadow-md shadow-rose-200">
-            <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center text-rose-600">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 to-violet-600 p-0.5 mx-auto shadow-md shadow-purple-500/20">
+            <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center text-purple-700">
               <Lock className="w-5 h-5" />
             </div>
           </div>
-          <h3 className="text-2xl font-bold font-serif text-[#3B1E32]">
+          <h3 className="text-2xl font-bold font-serif text-[#241235]">
             {getTitle()}
           </h3>
-          <p className="text-xs text-[#5C4054] max-w-xs mx-auto leading-relaxed">
+          <p className="text-xs text-[#554064] max-w-xs mx-auto leading-relaxed">
             {getSubtitle()}
           </p>
         </div>
@@ -173,8 +173,8 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
         {/* Notification message */}
         {error && (
           <div className="space-y-3">
-            <div className="p-3.5 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-start gap-2.5">
-              <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+            <div className="p-3.5 rounded-2xl bg-purple-50 border border-purple-200 text-purple-900 text-xs flex items-start gap-2.5">
+              <AlertCircle className="w-4 h-4 text-purple-700 shrink-0 mt-0.5" />
               <div className="space-y-1">
                 <span className="font-bold block">Error</span>
                 <span className="leading-relaxed">{error}</span>
@@ -217,7 +217,7 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
             type="button"
             onClick={handleGoogleLogin}
             disabled={loading}
-            className="w-full py-2.5 px-4 rounded-2xl bg-white hover:bg-rose-50/50 border border-rose-200 text-[#3B1E32] font-semibold text-xs tracking-wide flex items-center justify-center gap-2.5 transition-colors cursor-pointer disabled:opacity-50 shadow-xs"
+            className="w-full py-2.5 px-4 rounded-2xl bg-white hover:bg-purple-50/50 border border-purple-200 text-[#241235] font-semibold text-xs tracking-wide flex items-center justify-center gap-2.5 transition-colors cursor-pointer disabled:opacity-50 shadow-xs"
           >
             <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
               <path
@@ -241,9 +241,9 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
           </button>
 
           <div className="flex items-center gap-3">
-            <div className="h-[1px] flex-1 bg-rose-100"></div>
+            <div className="h-[1px] flex-1 bg-purple-100"></div>
             <span className="text-[10px] uppercase tracking-wider text-stone-400 font-semibold">o con correo</span>
-            <div className="h-[1px] flex-1 bg-rose-100"></div>
+            <div className="h-[1px] flex-1 bg-purple-100"></div>
           </div>
         </div>
 
@@ -251,7 +251,7 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
         <form onSubmit={handleSubmit} className="space-y-3.5">
           {mode === 'register' && (
             <div className="space-y-1">
-              <label className="block text-xs font-bold text-[#3B1E32]">
+              <label className="block text-xs font-bold text-[#241235]">
                 Nombre Completo
               </label>
               <div className="relative">
@@ -262,14 +262,14 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
                   placeholder="Ej. Nathaly Vergara"
                   value={nombre}
                   onChange={e => setNombre(e.target.value)}
-                  className="w-full pl-10 pr-3.5 py-2.5 rounded-2xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] text-xs focus:border-rose-500 focus:outline-none placeholder:text-stone-400"
+                  className="w-full pl-10 pr-3.5 py-2.5 rounded-2xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none placeholder:text-stone-400"
                 />
               </div>
             </div>
           )}
 
           <div className="space-y-1">
-            <label className="block text-xs font-bold text-[#3B1E32]">
+            <label className="block text-xs font-bold text-[#241235]">
               Correo Electrónico
             </label>
             <div className="relative">
@@ -280,7 +280,7 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
                 placeholder="tu@correo.com"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                className="w-full pl-10 pr-3.5 py-2.5 rounded-2xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] text-xs focus:border-rose-500 focus:outline-none placeholder:text-stone-400"
+                className="w-full pl-10 pr-3.5 py-2.5 rounded-2xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none placeholder:text-stone-400"
               />
             </div>
           </div>
@@ -288,14 +288,14 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
           {mode !== 'reset' && (
             <div className="space-y-1">
               <div className="flex items-center justify-between">
-                <label className="block text-xs font-bold text-[#3B1E32]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Contraseña
                 </label>
                 {mode === 'login' && (
                   <button
                     type="button"
                     onClick={() => setMode('reset')}
-                    className="text-[11px] text-rose-600 hover:text-rose-700 hover:underline font-medium cursor-pointer"
+                    className="text-[11px] text-purple-700 hover:text-purple-800 hover:underline font-medium cursor-pointer"
                   >
                     ¿Olvidaste tu contraseña?
                   </button>
@@ -309,24 +309,24 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
                   placeholder="••••••••"
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  className="w-full pl-10 pr-3.5 py-2.5 rounded-2xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] text-xs focus:border-rose-500 focus:outline-none placeholder:text-stone-400"
+                  className="w-full pl-10 pr-3.5 py-2.5 rounded-2xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none placeholder:text-stone-400"
                 />
               </div>
             </div>
           )}
 
           {mode === 'register' && (
-            <div className="p-3.5 rounded-2xl bg-[#FFF9FA] border border-rose-100 space-y-1.5">
+            <div className="p-3.5 rounded-2xl bg-[#FAF8FD] border border-purple-100 space-y-1.5">
               <label className="flex items-start gap-3 cursor-pointer select-none">
                 <input
                   type="checkbox"
                   checked={registerAsAdmin}
                   onChange={e => setRegisterAsAdmin(e.target.checked)}
-                  className="mt-0.5 rounded border-rose-300 text-rose-600 focus:ring-rose-500 bg-white w-4 h-4 cursor-pointer"
+                  className="mt-0.5 rounded border-purple-300 text-purple-700 focus:ring-rose-500 bg-white w-4 h-4 cursor-pointer"
                 />
                 <div className="space-y-0.5">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#3B1E32]">
-                    <ShieldCheck className="w-4 h-4 text-rose-500" />
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#241235]">
+                    <ShieldCheck className="w-4 h-4 text-purple-600" />
                     <span>Crear como Administrador</span>
                     {registerAsAdmin && (
                       <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold border border-amber-200">
@@ -334,7 +334,7 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
                       </span>
                     )}
                   </div>
-                  <p className="text-[11px] text-[#5C4054] leading-relaxed">
+                  <p className="text-[11px] text-[#554064] leading-relaxed">
                     {registerAsAdmin
                       ? '⚠️ Cuenta de Administrador: Por seguridad se crea en estado inactivo. Un administrador existente o en Firebase Console deberá activarla.'
                       : '✅ Cuenta de Cliente: Queda activa inmediatamente para cotizar y ver tus solicitudes.'}
@@ -365,7 +365,7 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-xs tracking-wider transition-all disabled:opacity-50 cursor-pointer shadow-md shadow-rose-200"
+              className="w-full py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-bold text-xs tracking-wider transition-all disabled:opacity-50 cursor-pointer shadow-md shadow-purple-500/20"
             >
               {loading
                 ? 'Procesando...'
@@ -379,14 +379,14 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
         </form>
 
         {/* Toggle Mode Footer */}
-        <div className="text-center text-xs text-[#5C4054] border-t border-rose-100 pt-3">
+        <div className="text-center text-xs text-[#554064] border-t border-purple-100 pt-3">
           {mode === 'login' ? (
             <p>
               ¿No tienes cuenta?{' '}
               <button
                 type="button"
                 onClick={() => setMode('register')}
-                className="text-rose-600 font-bold hover:underline cursor-pointer"
+                className="text-purple-700 font-bold hover:underline cursor-pointer"
               >
                 Regístrate aquí
               </button>
@@ -397,7 +397,7 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
               <button
                 type="button"
                 onClick={() => setMode('login')}
-                className="text-rose-600 font-bold hover:underline cursor-pointer"
+                className="text-purple-700 font-bold hover:underline cursor-pointer"
               >
                 Inicia sesión aquí
               </button>

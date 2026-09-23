@@ -77,23 +77,23 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
   return (
     <div className="space-y-6 text-left animate-in fade-in duration-200">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-rose-100 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-purple-100 shadow-sm">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-rose-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
             <span>Descuentos y Banners</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#3B1E32]">
+          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#241235]">
             Gestión de Promociones & Ofertas
           </h2>
-          <p className="text-xs text-[#5C4054]">
+          <p className="text-xs text-[#554064]">
             Configura descuentos de temporada, promociones de bodas y banners no invasivos para la web.
           </p>
         </div>
 
         <button
           onClick={handleStartCreate}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-bold tracking-wide transition-all cursor-pointer shadow-md shadow-rose-200 shrink-0"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-xs font-bold tracking-wide transition-all cursor-pointer shadow-md shadow-purple-500/20 shrink-0"
         >
           <Plus className="w-4 h-4" />
           <span>Nueva Promoción</span>
@@ -102,19 +102,19 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
 
       {/* Editor Form */}
       {editingOffer && (
-        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-rose-200 shadow-xl space-y-6">
-          <div className="flex items-center justify-between border-b border-rose-100 pb-4">
+        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-purple-200 shadow-xl space-y-6">
+          <div className="flex items-center justify-between border-b border-purple-100 pb-4">
             <div className="space-y-0.5">
-              <span className="text-xs font-bold text-rose-600 uppercase tracking-widest">
+              <span className="text-xs font-bold text-purple-700 uppercase tracking-widest">
                 {isCreating ? 'Crear Promoción' : 'Modificación'}
               </span>
-              <h3 className="text-xl font-bold font-serif text-[#3B1E32]">
+              <h3 className="text-xl font-bold font-serif text-[#241235]">
                 {isCreating ? 'Nueva Oferta de Temporada' : `Editar: ${editingOffer.titulo}`}
               </h3>
             </div>
             <button
               onClick={() => setEditingOffer(null)}
-              className="text-xs font-semibold px-3 py-1.5 rounded-xl text-[#5C4054] hover:text-[#3B1E32] hover:bg-rose-50 border border-rose-200"
+              className="text-xs font-semibold px-3 py-1.5 rounded-xl text-[#554064] hover:text-[#241235] hover:bg-purple-50 border border-purple-200"
             >
               Cancelar
             </button>
@@ -123,7 +123,7 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
           <form onSubmit={handleSave} className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#3B1E32]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Título de la Oferta *
                 </label>
                 <input
@@ -132,12 +132,12 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
                   placeholder="Ej. Promoción de Bodas & Eventos"
                   value={editingOffer.titulo}
                   onChange={e => setEditingOffer({ ...editingOffer, titulo: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#3B1E32]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Etiqueta de Descuento (Badge)
                 </label>
                 <input
@@ -145,13 +145,13 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
                   placeholder="Ej. 20% OFF, 2x1, ESPECIAL"
                   value={editingOffer.descuentoTexto || ''}
                   onChange={e => setEditingOffer({ ...editingOffer, descuentoTexto: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-xs font-bold text-[#3B1E32]">
+              <label className="block text-xs font-bold text-[#241235]">
                 Descripción o Beneficios *
               </label>
               <textarea
@@ -160,13 +160,13 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
                 placeholder="Explica qué incluye la promoción, condiciones o paquetes participantes..."
                 value={editingOffer.descripcion}
                 onChange={e => setEditingOffer({ ...editingOffer, descripcion: e.target.value })}
-                className="w-full p-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] text-xs focus:border-rose-500 focus:outline-none resize-none"
+                className="w-full p-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none resize-none"
               />
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#3B1E32]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Texto del Botón CTA
                 </label>
                 <input
@@ -174,12 +174,12 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
                   placeholder="Aprovechar Descuento"
                   value={editingOffer.textoBoton || ''}
                   onChange={e => setEditingOffer({ ...editingOffer, textoBoton: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#3B1E32]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Enlace externo (opcional - por defecto abre WhatsApp)
                 </label>
                 <input
@@ -187,61 +187,61 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
                   placeholder="https://..."
                   value={editingOffer.enlaceUrl || ''}
                   onChange={e => setEditingOffer({ ...editingOffer, enlaceUrl: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
             </div>
 
             <div className="grid sm:grid-cols-3 gap-4">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#3B1E32]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Fecha de Inicio
                 </label>
                 <input
                   type="date"
                   value={editingOffer.fechaInicio || ''}
                   onChange={e => setEditingOffer({ ...editingOffer, fechaInicio: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#3B1E32]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Fecha de Fin
                 </label>
                 <input
                   type="date"
                   value={editingOffer.fechaFin || ''}
                   onChange={e => setEditingOffer({ ...editingOffer, fechaFin: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
 
               <div className="flex items-center gap-2 pt-6">
-                <label className="flex items-center gap-2 text-xs font-bold text-[#3B1E32] cursor-pointer">
+                <label className="flex items-center gap-2 text-xs font-bold text-[#241235] cursor-pointer">
                   <input
                     type="checkbox"
                     checked={editingOffer.activo}
                     onChange={e => setEditingOffer({ ...editingOffer, activo: e.target.checked })}
-                    className="rounded text-rose-600 focus:ring-rose-500 w-4 h-4"
+                    className="rounded text-purple-700 focus:ring-rose-500 w-4 h-4"
                   />
                   <span>Promoción Activa en la Web</span>
                 </label>
               </div>
             </div>
 
-            <div className="flex justify-end gap-3 pt-3 border-t border-rose-100">
+            <div className="flex justify-end gap-3 pt-3 border-t border-purple-100">
               <button
                 type="button"
                 onClick={() => setEditingOffer(null)}
-                className="px-4 py-2.5 rounded-xl border border-rose-200 bg-white hover:bg-rose-50 text-[#3B1E32] text-xs font-semibold cursor-pointer"
+                className="px-4 py-2.5 rounded-xl border border-purple-200 bg-white hover:bg-purple-50 text-[#241235] text-xs font-semibold cursor-pointer"
               >
                 Cancelar
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-bold tracking-wider shadow-md shadow-rose-200 disabled:opacity-50 cursor-pointer"
+                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-xs font-bold tracking-wider shadow-md shadow-purple-500/20 disabled:opacity-50 cursor-pointer"
               >
                 {loading ? 'Guardando...' : 'Guardar Promoción'}
               </button>
@@ -255,15 +255,15 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
         {offers.map((offer) => (
           <div
             key={offer.id}
-            className="p-5 sm:p-6 rounded-3xl bg-white border border-rose-100 hover:border-rose-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all"
+            className="p-5 sm:p-6 rounded-3xl bg-white border border-purple-100 hover:border-purple-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all"
           >
             <div className="space-y-2 flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="font-bold text-base font-serif text-[#3B1E32]">
+                <span className="font-bold text-base font-serif text-[#241235]">
                   {offer.titulo}
                 </span>
                 {offer.descuentoTexto && (
-                  <span className="px-2.5 py-0.5 rounded-full bg-rose-600 text-white text-[10px] font-extrabold uppercase tracking-wide">
+                  <span className="px-2.5 py-0.5 rounded-full bg-purple-700 text-white text-[10px] font-extrabold uppercase tracking-wide">
                     {offer.descuentoTexto}
                   </span>
                 )}
@@ -276,7 +276,7 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
                 </span>
               </div>
 
-              <p className="text-xs text-[#5C4054] leading-relaxed">
+              <p className="text-xs text-[#554064] leading-relaxed">
                 {offer.descripcion}
               </p>
 
@@ -300,7 +300,7 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
 
               <button
                 onClick={() => handleStartEdit(offer)}
-                className="p-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 transition-colors cursor-pointer"
+                className="p-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-800 border border-purple-200 transition-colors cursor-pointer"
                 title="Editar"
               >
                 <Edit2 className="w-4 h-4" />
@@ -318,10 +318,10 @@ export const AdminOffers: React.FC<AdminOffersProps> = ({
         ))}
 
         {offers.length === 0 && (
-          <div className="text-center py-16 bg-white rounded-3xl border border-rose-100 shadow-sm p-8 space-y-2">
-            <Sparkles className="w-10 h-10 text-rose-300 mx-auto" />
-            <h4 className="text-sm font-bold text-[#3B1E32]">No hay promociones registradas</h4>
-            <p className="text-[#5C4054] text-xs">
+          <div className="text-center py-16 bg-white rounded-3xl border border-purple-100 shadow-sm p-8 space-y-2">
+            <Sparkles className="w-10 h-10 text-purple-300 mx-auto" />
+            <h4 className="text-sm font-bold text-[#241235]">No hay promociones registradas</h4>
+            <p className="text-[#554064] text-xs">
               Crea tu primera promoción o descuento para incentivar reservas de paquetes.
             </p>
           </div>

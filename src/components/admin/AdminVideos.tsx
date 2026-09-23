@@ -135,16 +135,16 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-rose-100 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-purple-100 shadow-sm">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-rose-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
             <span>Producción Audiovisual</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#33182B]">
+          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#241235]">
             Gestión de Videos & Reels
           </h2>
-          <p className="text-xs sm:text-sm text-[#5E4758]">
+          <p className="text-xs sm:text-sm text-[#554064]">
             Conecta enlaces de YouTube, Vimeo o Google Drive para mostrar showreels y reels dinámicos sin pagar hosting.
           </p>
         </div>
@@ -152,15 +152,15 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
         <div className="flex items-center gap-2.5">
           <button
             onClick={() => setGuideOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#FFF9FA] hover:bg-rose-50 text-rose-700 font-semibold text-xs border border-rose-200 transition-colors cursor-pointer shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#FAF8FD] hover:bg-purple-50 text-purple-800 font-semibold text-xs border border-purple-200 transition-colors cursor-pointer shadow-2xs"
           >
-            <BookOpen className="w-3.5 h-3.5 text-rose-600" />
+            <BookOpen className="w-3.5 h-3.5 text-purple-700" />
             <span>Guía de Videos</span>
           </button>
 
           <button
             onClick={handleStartCreate}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-semibold tracking-wide transition-all cursor-pointer shadow-md shadow-rose-200"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-xs font-semibold tracking-wide transition-all cursor-pointer shadow-md shadow-purple-500/20"
           >
             <Plus className="w-4 h-4" />
             <span>Nuevo Video</span>
@@ -170,19 +170,19 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
 
       {/* Editor Form Modal */}
       {editingVideo && (
-        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-rose-200 shadow-xl space-y-6">
-          <div className="flex items-center justify-between border-b border-rose-100 pb-4">
+        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-purple-200 shadow-xl space-y-6">
+          <div className="flex items-center justify-between border-b border-purple-100 pb-4">
             <div className="space-y-0.5">
-              <span className="text-xs font-bold text-rose-600 uppercase tracking-widest">
+              <span className="text-xs font-bold text-purple-700 uppercase tracking-widest">
                 {isCreating ? 'Nuevo Video' : 'Modificación'}
               </span>
-              <h3 className="text-xl font-bold font-serif text-[#33182B]">
+              <h3 className="text-xl font-bold font-serif text-[#241235]">
                 {isCreating ? 'Agregar Video o Reel' : `Editar: ${editingVideo.titulo}`}
               </h3>
             </div>
             <button
               onClick={() => setEditingVideo(null)}
-              className="text-xs font-semibold px-3 py-1.5 rounded-xl text-[#5E4758] hover:text-[#33182B] hover:bg-rose-50 border border-rose-200"
+              className="text-xs font-semibold px-3 py-1.5 rounded-xl text-[#554064] hover:text-[#241235] hover:bg-purple-50 border border-purple-200"
             >
               Cancelar
             </button>
@@ -191,7 +191,7 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
           <form onSubmit={handleSave} className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Título del Video o Proyecto *
                 </label>
                 <input
@@ -200,18 +200,18 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
                   placeholder="Ej. Showreel 2025 • Producción Studio Foráneas"
                   value={editingVideo.titulo}
                   onChange={e => setEditingVideo({ ...editingVideo, titulo: e.target.value })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Categoría
                 </label>
                 <select
                   value={editingVideo.categoria}
                   onChange={e => setEditingVideo({ ...editingVideo, categoria: e.target.value as any })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 >
                   <option value="reels">Reel / Video Vertical (Instagram & TikTok)</option>
                   <option value="bodas">Bodas & Matrimonios (Cinematográfico)</option>
@@ -222,7 +222,7 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
             </div>
 
             <div className="space-y-1.5">
-              <label className="block text-xs font-bold text-[#33182B]">
+              <label className="block text-xs font-bold text-[#241235]">
                 URL del Video (YouTube, YouTube Shorts, Vimeo o Google Drive) *
               </label>
               <input
@@ -231,9 +231,9 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
                 placeholder="https://www.youtube.com/watch?v=... o https://youtu.be/... o Google Drive"
                 value={editingVideo.videoUrl}
                 onChange={e => setEditingVideo({ ...editingVideo, videoUrl: e.target.value })}
-                className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
               />
-              <span className="text-[11px] text-[#5E4758]">
+              <span className="text-[11px] text-[#554064]">
                 Admite enlaces regulares de YouTube, enlaces cortos de Shorts, videos de Vimeo o enlaces compartidos de Google Drive.
               </span>
             </div>
@@ -241,7 +241,7 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
             {/* Video Interactive Preview */}
             {previewParsed && previewParsed.embedUrl && (
               <div className="p-4 rounded-2xl bg-neutral-900 border border-neutral-800 space-y-2 text-white">
-                <span className="text-xs font-bold text-rose-400 block uppercase tracking-wider">
+                <span className="text-xs font-bold text-purple-500 block uppercase tracking-wider">
                   Vista Previa del Reproductor ({previewParsed.type.toUpperCase()})
                 </span>
                 <div className="aspect-video max-w-md mx-auto rounded-xl overflow-hidden bg-black">
@@ -258,7 +258,7 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Portada / Thumbnail Personalizada (Opcional)
                 </label>
                 <input
@@ -266,12 +266,12 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
                   placeholder="https://drive.google.com/... o enlace de imagen"
                   value={editingVideo.thumbnailUrl || ''}
                   onChange={e => setEditingVideo({ ...editingVideo, thumbnailUrl: e.target.value })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
 
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Posición / Orden
                 </label>
                 <input
@@ -279,36 +279,36 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
                   min={1}
                   value={editingVideo.orden || 1}
                   onChange={e => setEditingVideo({ ...editingVideo, orden: parseInt(e.target.value) || 1 })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
             </div>
 
             <div className="pt-2">
-              <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#33182B]">
+              <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#241235]">
                 <input
                   type="checkbox"
                   checked={editingVideo.publicado}
                   onChange={e => setEditingVideo({ ...editingVideo, publicado: e.target.checked })}
-                  className="w-4 h-4 rounded text-rose-600 focus:ring-rose-500"
+                  className="w-4 h-4 rounded text-purple-700 focus:ring-rose-500"
                 />
                 <span>Publicar video en la sección audiovisual de la web</span>
               </label>
             </div>
 
             {/* Actions */}
-            <div className="flex items-center justify-end gap-3 pt-4 border-t border-rose-100">
+            <div className="flex items-center justify-end gap-3 pt-4 border-t border-purple-100">
               <button
                 type="button"
                 onClick={() => setEditingVideo(null)}
-                className="px-4 py-2.5 rounded-xl text-xs font-semibold text-[#5E4758] hover:text-[#33182B] hover:bg-rose-50 transition-colors"
+                className="px-4 py-2.5 rounded-xl text-xs font-semibold text-[#554064] hover:text-[#241235] hover:bg-purple-50 transition-colors"
               >
                 Cancelar
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-semibold tracking-wide shadow-md shadow-rose-200 transition-all cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-xs font-semibold tracking-wide shadow-md shadow-purple-500/20 transition-all cursor-pointer disabled:opacity-50"
               >
                 {loading ? 'Guardando...' : 'Guardar Video'}
               </button>
@@ -324,7 +324,7 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
           return (
             <div
               key={vid.id}
-              className="rounded-3xl border border-rose-100 bg-white overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-all"
+              className="rounded-3xl border border-purple-100 bg-white overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-all"
             >
               <div className="relative aspect-video bg-neutral-900 overflow-hidden">
                 {parsed && parsed.embedUrl ? (
@@ -343,7 +343,7 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
                 )}
 
                 <div className="absolute top-3 left-3 pointer-events-none">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-rose-700 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-xs">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-purple-800 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full shadow-xs">
                     {vid.categoria}
                   </span>
                 </div>
@@ -351,17 +351,17 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
 
               <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="font-bold text-sm font-serif text-[#33182B] line-clamp-1">
+                  <h4 className="font-bold text-sm font-serif text-[#241235] line-clamp-1">
                     {vid.titulo}
                   </h4>
                   {vid.descripcion && (
-                    <p className="text-xs text-[#5E4758] line-clamp-2 mt-1">
+                    <p className="text-xs text-[#554064] line-clamp-2 mt-1">
                       {vid.descripcion}
                     </p>
                   )}
                 </div>
 
-                <div className="flex items-center justify-between pt-3 border-t border-rose-100 text-xs">
+                <div className="flex items-center justify-between pt-3 border-t border-purple-100 text-xs">
                   <span className="text-[11px] text-neutral-400 font-mono">
                     #{vid.orden || 1} • {vid.publicado ? '🟢 Visible' : '⚪ Oculto'}
                   </span>
@@ -370,7 +370,7 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
                     <button
                       onClick={() => handleTogglePublish(vid)}
                       title={vid.publicado ? 'Ocultar' : 'Publicar'}
-                      className="p-1.5 rounded-lg text-[#5E4758] hover:text-[#33182B] hover:bg-rose-50 transition-colors"
+                      className="p-1.5 rounded-lg text-[#554064] hover:text-[#241235] hover:bg-purple-50 transition-colors"
                     >
                       {vid.publicado ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4 text-neutral-400" />}
                     </button>
@@ -378,7 +378,7 @@ export const AdminVideos: React.FC<AdminVideosProps> = ({
                     <button
                       onClick={() => handleStartEdit(vid)}
                       title="Editar video"
-                      className="p-1.5 rounded-lg text-rose-600 hover:bg-rose-50 transition-colors"
+                      className="p-1.5 rounded-lg text-purple-700 hover:bg-purple-50 transition-colors"
                     >
                       <Edit2 className="w-4 h-4" />
                     </button>

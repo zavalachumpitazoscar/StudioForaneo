@@ -107,16 +107,16 @@ service cloud.firestore {
   return (
     <div className="space-y-6 max-w-4xl text-left animate-in fade-in duration-200">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-rose-100 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-purple-100 shadow-sm">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <HelpCircle className="w-3.5 h-3.5 text-rose-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-wider">
+            <HelpCircle className="w-3.5 h-3.5 text-purple-700" />
             <span>Documentación Técnica</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#3B1E32]">
+          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#241235]">
             Guía de Configuración: Firebase & Publicación en GitHub
           </h2>
-          <p className="text-xs text-[#5C4054]">
+          <p className="text-xs text-[#554064]">
             Instrucciones detalladas paso a paso para conectar tu base de datos gratuita de Firebase y publicar el proyecto.
           </p>
         </div>
@@ -133,13 +133,13 @@ service cloud.firestore {
             <Flame className="w-5 h-5 fill-amber-500" />
           </div>
           <div>
-            <div className="font-bold text-sm text-[#3B1E32] flex items-center gap-2">
+            <div className="font-bold text-sm text-[#241235] flex items-center gap-2">
               <span>{isFirebaseConfigured ? 'Firebase Conectado' : 'Modo Demo / Pruebas Activo'}</span>
               <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold">
                 {firebaseConfig.projectId}
               </span>
             </div>
-            <p className="text-xs text-[#5C4054] mt-0.5 leading-relaxed">
+            <p className="text-xs text-[#554064] mt-0.5 leading-relaxed">
               {isFirebaseConfigured
                 ? `Todos los servicios, fotos, videos y configuraciones se almacenan directamente en tu base de datos Firestore (default) del proyecto ${firebaseConfig.projectId}.`
                 : 'La aplicación está funcionando con almacenamiento local reactivo.'}
@@ -155,15 +155,15 @@ service cloud.firestore {
       </div>
 
       {/* Step by Step Guide */}
-      <div className="space-y-4 text-xs text-[#5C4054]">
+      <div className="space-y-4 text-xs text-[#554064]">
         {/* Step 1 */}
-        <div className="p-6 sm:p-7 rounded-3xl bg-white border border-rose-100 shadow-sm space-y-4">
-          <h3 className="text-sm font-bold font-serif text-[#3B1E32] uppercase tracking-wider flex items-center gap-2.5">
-            <span className="w-6 h-6 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">1</span>
+        <div className="p-6 sm:p-7 rounded-3xl bg-white border border-purple-100 shadow-sm space-y-4">
+          <h3 className="text-sm font-bold font-serif text-[#241235] uppercase tracking-wider flex items-center gap-2.5">
+            <span className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">1</span>
             <span>Crear Proyecto en Firebase (100% Gratuito)</span>
           </h3>
-          <ol className="list-decimal list-inside space-y-2 pl-2 text-xs leading-relaxed text-[#5C4054]">
-            <li>Ingresa a <a href="https://console.firebase.google.com" target="_blank" rel="noreferrer" className="text-rose-600 underline font-semibold">console.firebase.google.com</a> y presiona <strong>"Agregar proyecto"</strong>.</li>
+          <ol className="list-decimal list-inside space-y-2 pl-2 text-xs leading-relaxed text-[#554064]">
+            <li>Ingresa a <a href="https://console.firebase.google.com" target="_blank" rel="noreferrer" className="text-purple-700 underline font-semibold">console.firebase.google.com</a> y presiona <strong>"Agregar proyecto"</strong>.</li>
             <li>Asígnale el nombre <strong>"Studio Foráneas"</strong> y desactiva Google Analytics para mayor rapidez.</li>
             <li>En la barra izquierda, ingresa a <strong>Compilación &gt; Authentication</strong> y presiona <strong>"Comenzar"</strong>.</li>
             <li>En la pestaña <em>Método de inicio de sesión</em>, habilita <strong>Correo electrónico/Contraseña</strong>.</li>
@@ -172,34 +172,34 @@ service cloud.firestore {
         </div>
 
         {/* Step 2: Rules */}
-        <div className="p-6 sm:p-7 rounded-3xl bg-white border border-rose-100 shadow-sm space-y-4">
+        <div className="p-6 sm:p-7 rounded-3xl bg-white border border-purple-100 shadow-sm space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold font-serif text-[#3B1E32] uppercase tracking-wider flex items-center gap-2.5">
-              <span className="w-6 h-6 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">2</span>
+            <h3 className="text-sm font-bold font-serif text-[#241235] uppercase tracking-wider flex items-center gap-2.5">
+              <span className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">2</span>
               <span>Reglas de Seguridad de Firestore (Pégalas en Firebase Console)</span>
             </h3>
             <button
               onClick={() => copyToClipboard(firestoreRulesSample, 'rules')}
-              className="px-3.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold flex items-center gap-1.5 border border-rose-200 transition-colors cursor-pointer"
+              className="px-3.5 py-1.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-800 text-xs font-semibold flex items-center gap-1.5 border border-purple-200 transition-colors cursor-pointer"
             >
               <Copy className="w-3.5 h-3.5" />
               <span>{copiedSection === 'rules' ? '¡Copiado!' : 'Copiar Reglas'}</span>
             </button>
           </div>
 
-          <p className="text-xs text-[#5C4054]">
+          <p className="text-xs text-[#554064]">
             En la consola de Firestore, ve a la pestaña <strong>"Reglas"</strong>, reemplaza todo el contenido por lo siguiente y presiona <strong>"Publicar"</strong>:
           </p>
 
-          <pre className="p-4 rounded-2xl bg-[#2A1724] border border-rose-950/60 text-[11px] font-mono text-rose-100 overflow-x-auto max-h-60 leading-relaxed shadow-inner">
+          <pre className="p-4 rounded-2xl bg-[#2A1724] border border-rose-950/60 text-[11px] font-mono text-purple-100 overflow-x-auto max-h-60 leading-relaxed shadow-inner">
             {firestoreRulesSample}
           </pre>
         </div>
 
         {/* Step 3: First Admin User Activation */}
-        <div className="p-6 sm:p-7 rounded-3xl bg-white border border-rose-100 shadow-sm space-y-3">
-          <h3 className="text-sm font-bold font-serif text-[#3B1E32] uppercase tracking-wider flex items-center gap-2.5">
-            <span className="w-6 h-6 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">3</span>
+        <div className="p-6 sm:p-7 rounded-3xl bg-white border border-purple-100 shadow-sm space-y-3">
+          <h3 className="text-sm font-bold font-serif text-[#241235] uppercase tracking-wider flex items-center gap-2.5">
+            <span className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">3</span>
             <span>Crear y Activar el Primer Usuario Administrador</span>
           </h3>
           <p className="leading-relaxed">
@@ -209,7 +209,7 @@ service cloud.firestore {
             2. Desde tu panel de <strong>Equipo & Usuarios</strong>, verás su tarjeta en la sección de aprobación de administradores pendientes con el botón <strong>"Aprobar y Activar Admin"</strong>.
           </p>
           <p className="leading-relaxed">
-            3. Si prefieres activarla por consola, ingresa a <strong>Firestore Database</strong> &gt; colección <code className="text-rose-600 font-mono text-[11px]">users</code> &gt; documento con su <strong>UID</strong> y ajusta:
+            3. Si prefieres activarla por consola, ingresa a <strong>Firestore Database</strong> &gt; colección <code className="text-purple-700 font-mono text-[11px]">users</code> &gt; documento con su <strong>UID</strong> y ajusta:
           </p>
           <div className="p-3.5 rounded-2xl bg-[#2A1724] border border-rose-950/60 font-mono text-[11px] text-emerald-400">
             rol: "ADMIN"<br />
@@ -221,13 +221,13 @@ service cloud.firestore {
         </div>
 
         {/* Step 4: Where to put credentials and GitHub Pages */}
-        <div className="p-6 sm:p-7 rounded-3xl bg-white border border-rose-100 shadow-sm space-y-4">
-          <h3 className="text-sm font-bold font-serif text-[#3B1E32] uppercase tracking-wider flex items-center gap-2.5">
-            <span className="w-6 h-6 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">4</span>
+        <div className="p-6 sm:p-7 rounded-3xl bg-white border border-purple-100 shadow-sm space-y-4">
+          <h3 className="text-sm font-bold font-serif text-[#241235] uppercase tracking-wider flex items-center gap-2.5">
+            <span className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">4</span>
             <span>Credenciales de Firebase & Alerta de Seguridad de GitHub</span>
           </h3>
           <p className="leading-relaxed">
-            Las aplicaciones web de Firebase utilizan un archivo <code className="text-[#3B1E32] font-semibold">firebase-applet-config.json</code> en la raíz del proyecto para conectar con el SDK en el navegador.
+            Las aplicaciones web de Firebase utilizan un archivo <code className="text-[#241235] font-semibold">firebase-applet-config.json</code> en la raíz del proyecto para conectar con el SDK en el navegador.
           </p>
 
           <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-200 text-amber-900 space-y-2">
@@ -244,14 +244,14 @@ service cloud.firestore {
           </div>
 
           <div className="pt-2 space-y-2">
-            <h4 className="font-bold text-[#3B1E32] flex items-center gap-1.5 text-xs">
+            <h4 className="font-bold text-[#241235] flex items-center gap-1.5 text-xs">
               <Github className="w-4 h-4 text-stone-500" />
               <span>Para Publicar en GitHub Pages:</span>
             </h4>
-            <ol className="list-decimal list-inside space-y-1 text-xs text-[#5C4054]">
-              <li>Sube el repositorio a tu cuenta de GitHub (<code className="text-[#3B1E32]">git push origin main</code>).</li>
-              <li>Ejecuta <code className="text-[#3B1E32]">npm run build</code> para generar la carpeta <code className="text-[#3B1E32]">dist/</code>.</li>
-              <li>En GitHub &gt; <strong>Settings &gt; Pages</strong>, selecciona la rama o usa GitHub Actions para desplegar automáticamente la carpeta <code className="text-[#3B1E32]">dist</code>.</li>
+            <ol className="list-decimal list-inside space-y-1 text-xs text-[#554064]">
+              <li>Sube el repositorio a tu cuenta de GitHub (<code className="text-[#241235]">git push origin main</code>).</li>
+              <li>Ejecuta <code className="text-[#241235]">npm run build</code> para generar la carpeta <code className="text-[#241235]">dist/</code>.</li>
+              <li>En GitHub &gt; <strong>Settings &gt; Pages</strong>, selecciona la rama o usa GitHub Actions para desplegar automáticamente la carpeta <code className="text-[#241235]">dist</code>.</li>
             </ol>
           </div>
         </div>

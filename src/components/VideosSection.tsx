@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { VideoItem } from '../types';
-import { Play, ExternalLink, Film, X } from 'lucide-react';
+import { VideoItem, SiteConfig } from '../types';
+import { Play, ExternalLink, Film, X, Sparkles } from 'lucide-react';
 import { parseVideoUrl, getDirectImageUrl } from '../firebase/driveUtils';
 
 interface VideosSectionProps {
   videos: VideoItem[];
+  config?: SiteConfig;
 }
 
-export const VideosSection: React.FC<VideosSectionProps> = ({ videos }) => {
+export const VideosSection: React.FC<VideosSectionProps> = ({ videos, config }) => {
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
 
   const publishedVideos = videos
@@ -19,17 +20,18 @@ export const VideosSection: React.FC<VideosSectionProps> = ({ videos }) => {
   const parsedSelected = selectedVideo ? parseVideoUrl(selectedVideo.videoUrl) : null;
 
   return (
-    <section id="videos" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+    <section id="videos" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-4 py-1.5 rounded-full border border-rose-200">
-          Producción en Movimiento
-        </span>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-[#33182B]">
-          Videos, Reels & Coberturas
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-100/90 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-widest shadow-2xs">
+          <Sparkles className="w-3.5 h-3.5 text-purple-600" />
+          <span>{config?.videosBadge || 'Producción en Movimiento'}</span>
+        </div>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-serif text-[#241235] tracking-tight">
+          {config?.videosTitulo || 'Videos, Reels & Coberturas'}
         </h2>
-        <p className="text-[#5E4758] text-sm sm:text-base">
-          Showreels cinematográficos, resúmenes dinámicos para redes sociales y filmación documental con edición profesional y etalonaje de color.
+        <p className="text-[#554064] text-sm sm:text-base">
+          {config?.videosSubtitulo || 'Showreels cinematográficos, resúmenes dinámicos para redes sociales y filmación documental con edición profesional y etalonaje de color.'}
         </p>
       </div>
 
@@ -44,95 +46,78 @@ export const VideosSection: React.FC<VideosSectionProps> = ({ videos }) => {
           return (
             <div
               key={item.id}
-              className="group rounded-3xl bg-white border border-rose-100 overflow-hidden hover:border-rose-300 hover:shadow-xl hover:shadow-rose-100/70 transition-all duration-300 flex flex-col justify-between shadow-sm"
+              className="group rounded-3xl bg-white border border-purple-100 overflow-hidden hover:border-purple-300 hover:shadow-xl hover:shadow-purple-900/10 transition-all duration-300 flex flex-col justify-between shadow-sm"
             >
               {/* Media Player or Thumbnail with Play Trigger */}
               <div className="relative aspect-video w-full bg-stone-900 overflow-hidden">
-                {parsed.type === 'youtube' && parsed.embedUrl ? (
-                  <iframe
-                    src={parsed.embedUrl}
-                    title={item.titulo}
-                    className="w-full h-full border-0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                ) : parsed.type === 'drive' && parsed.embedUrl ? (
-                  <div className="relative w-full h-full">
-                    <iframe
-                      src={parsed.embedUrl}
-                      title={item.titulo}
-                      className="w-full h-full border-0"
-                      allow="autoplay"
-                    />
-                    <div className="absolute top-2 right-2">
-                      <a
-                        href={item.videoUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center gap-1 px-3 py-1 rounded-full bg-white/90 hover:bg-white text-stone-800 text-[11px] font-semibold backdrop-blur-sm shadow-sm transition-colors"
-                      >
-                        <ExternalLink className="w-3 h-3" />
-                        <span>Abrir en Drive</span>
-                      </a>
-                    </div>
-                  </div>
-                ) : (
-                  <div
-                    onClick={() => setSelectedVideo(item)}
-                    className="relative w-full h-full cursor-pointer group"
-                  >
-                    <img
-                      src={thumb}
-                      alt={item.titulo}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-90"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-rose-600/90 group-hover:bg-rose-500 text-white flex items-center justify-center shadow-xl shadow-rose-200 transform group-hover:scale-110 transition-all duration-200">
-                        <Play className="w-7 h-7 fill-current ml-1" />
-                      </div>
-                    </div>
-                  </div>
-                )}
+                <img
+                  src={thumb}
+                  alt={item.titulo}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=1200&auto=format&fit=crop';
+                  }}
+                />
+                <div className="absolute inset-0 bg-stone-950/40 group-hover:bg-stone-950/25 transition-colors" />
+
+                {/* Play Button Trigger */}
+                <button
+                  onClick={() => setSelectedVideo(item)}
+                  className="absolute inset-0 m-auto w-16 h-16 rounded-full bg-lime-400 text-purple-950 flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all cursor-pointer group-hover:shadow-lime-400/50"
+                  aria-label="Reproducir video"
+                >
+                  <Play className="w-7 h-7 fill-current ml-1" />
+                </button>
+
+                {/* Duration / Source Tag */}
+                <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-stone-900/80 backdrop-blur-sm text-white text-[11px] font-mono flex items-center gap-1.5">
+                  <Film className="w-3 h-3 text-purple-400" />
+                  <span>{parsed.type.toUpperCase()}</span>
+                </div>
               </div>
 
-              {/* Video Info */}
-              <div className="p-6 sm:p-7 space-y-3.5">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="px-3 py-0.5 rounded-full bg-rose-50 text-rose-700 text-[10px] font-bold uppercase tracking-wider">
-                    {item.categoria}
-                  </span>
-                  <span className="text-[11px] text-[#8A6D81] uppercase tracking-widest font-semibold">
-                    {parsed.type === 'youtube' ? 'YouTube' : parsed.type === 'drive' ? 'Google Drive' : 'Video'}
-                  </span>
+              {/* Text Info */}
+              <div className="p-6 sm:p-7 space-y-4">
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-purple-700">
+                      {item.categoria || 'Producción Audiovisual'}
+                    </span>
+                    {item.fecha && (
+                      <span className="text-[11px] text-[#725C80] font-mono">
+                        {item.fecha}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="text-xl font-bold font-serif text-[#241235] group-hover:text-purple-700 transition-colors">
+                    {item.titulo}
+                  </h3>
+
+                  {item.descripcion && (
+                    <p className="text-[#554064] text-xs sm:text-sm line-clamp-2 leading-relaxed">
+                      {item.descripcion}
+                    </p>
+                  )}
                 </div>
 
-                <h3 className="text-xl font-bold font-serif text-[#33182B] group-hover:text-rose-600 transition-colors">
-                  {item.titulo}
-                </h3>
-
-                {item.descripcion && (
-                  <p className="text-xs sm:text-sm text-[#665060] leading-relaxed line-clamp-2">
-                    {item.descripcion}
-                  </p>
-                )}
-
-                <div className="pt-3 border-t border-rose-100 flex items-center justify-between">
+                <div className="pt-3 border-t border-purple-50 flex items-center justify-between text-xs">
                   <button
                     onClick={() => setSelectedVideo(item)}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 hover:text-rose-500 cursor-pointer"
+                    className="font-bold text-purple-700 hover:text-purple-900 flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
-                    <Film className="w-3.5 h-3.5" />
-                    <span>Ver en pantalla completa</span>
+                    <Play className="w-3.5 h-3.5 fill-current text-lime-600" />
+                    <span>Reproducir en modal</span>
                   </button>
 
                   <a
                     href={item.videoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[#8A6D81] hover:text-rose-600 text-xs inline-flex items-center gap-1 font-medium transition-colors"
+                    className="text-[#725C80] hover:text-purple-700 flex items-center gap-1 transition-colors"
                   >
-                    <ExternalLink className="w-3 h-3" />
-                    <span>Enlace original</span>
+                    <span>Abrir origen</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>
@@ -141,79 +126,64 @@ export const VideosSection: React.FC<VideosSectionProps> = ({ videos }) => {
         })}
       </div>
 
-      {/* Fullscreen Video Modal */}
+      {/* Floating Video Modal */}
       {selectedVideo && parsedSelected && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/85 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-4xl bg-white rounded-3xl border border-rose-200 overflow-hidden shadow-2xl space-y-4">
+        <div
+          className="fixed inset-0 z-50 bg-stone-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+          onClick={() => setSelectedVideo(null)}
+        >
+          <div
+            className="relative w-full max-w-4xl bg-stone-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10 space-y-4"
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Modal Header */}
-            <div className="p-4 sm:p-5 flex items-center justify-between border-b border-rose-100">
-              <div>
-                <h3 className="text-base sm:text-lg font-bold font-serif text-[#33182B]">
-                  {selectedVideo.titulo}
-                </h3>
-                <span className="text-xs text-rose-600 font-semibold">
-                  {selectedVideo.categoria} • Studio Foráneas
+            <div className="flex items-center justify-between p-4 sm:px-6 bg-stone-800/80 border-b border-white/10">
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-lime-400">
+                  {selectedVideo.categoria || 'Video'}
                 </span>
+                <h4 className="text-sm sm:text-base font-bold text-white font-serif truncate max-w-lg">
+                  {selectedVideo.titulo}
+                </h4>
               </div>
               <button
                 onClick={() => setSelectedVideo(null)}
-                aria-label="Cerrar reproductor"
-                className="p-2 rounded-full bg-rose-50 text-[#5C4054] hover:text-[#33182B] hover:bg-rose-100 transition-colors"
+                className="p-2 rounded-full hover:bg-white/10 text-stone-300 hover:text-white transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Video Frame */}
-            <div className="relative aspect-video w-full bg-stone-900">
-              {parsedSelected.type === 'youtube' && parsedSelected.embedUrl ? (
+            {/* Video Player */}
+            <div className="relative aspect-video w-full bg-black">
+              {parsedSelected.embedUrl ? (
                 <iframe
-                  src={`${parsedSelected.embedUrl}&autoplay=1`}
-                  title={selectedVideo.titulo}
-                  className="w-full h-full border-0"
+                  src={`${parsedSelected.embedUrl}?autoplay=1`}
+                  className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                />
-              ) : parsedSelected.type === 'drive' && parsedSelected.embedUrl ? (
-                <iframe
-                  src={parsedSelected.embedUrl}
                   title={selectedVideo.titulo}
-                  className="w-full h-full border-0"
-                  allow="autoplay"
                 />
-              ) : parsedSelected.type === 'vimeo' && parsedSelected.embedUrl ? (
-                <iframe
-                  src={parsedSelected.embedUrl}
-                  title={selectedVideo.titulo}
-                  className="w-full h-full border-0"
-                  allow="autoplay; fullscreen"
-                  allowFullScreen
-                />
-              ) : parsedSelected.type === 'direct' ? (
-                <video src={parsedSelected.originalUrl} controls autoPlay className="w-full h-full object-contain" />
               ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-4">
-                  <Film className="w-12 h-12 text-rose-500" />
-                  <p className="text-sm text-stone-300">
-                    Este recurso está alojado externamente.
-                  </p>
+                <div className="w-full h-full flex flex-col items-center justify-center text-center p-6 space-y-4 text-stone-300">
+                  <p>Este video no se puede incrustar directamente.</p>
                   <a
                     href={selectedVideo.videoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-lime-400 text-purple-950 font-bold text-xs hover:bg-lime-300 transition-colors"
                   >
+                    <span>Abrir en enlace externo</span>
                     <ExternalLink className="w-4 h-4" />
-                    <span>Abrir video en nueva pestaña</span>
                   </a>
                 </div>
               )}
             </div>
 
-            {/* Modal Footer Description */}
+            {/* Modal Footer */}
             {selectedVideo.descripcion && (
-              <div className="p-4 sm:p-5 border-t border-rose-100 text-xs sm:text-sm text-[#5E4758]">
-                {selectedVideo.descripcion}
+              <div className="p-4 sm:p-6 pt-0 text-xs text-stone-300">
+                <p>{selectedVideo.descripcion}</p>
               </div>
             )}
           </div>

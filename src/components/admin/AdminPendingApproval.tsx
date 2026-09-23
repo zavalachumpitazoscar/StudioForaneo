@@ -67,7 +67,7 @@ export const AdminPendingApproval: React.FC<AdminPendingApprovalProps> = ({ conf
             • <strong>Otro administrador activo:</strong> Puede ingresar al panel en la sección <strong>"Equipo & Usuarios"</strong> y presionar el botón <em>"Aprobar y Activar"</em>.
           </p>
           <p className="leading-relaxed">
-            • <strong>En Firebase Console:</strong> El dueño del proyecto puede cambiar tu campo <code className="text-rose-400">activo: true</code> en la colección de Firestore <code className="text-rose-400">users</code>.
+            • <strong>En Firebase Console:</strong> El dueño del proyecto puede cambiar tu campo <code className="text-purple-500">activo: true</code> en la colección de Firestore <code className="text-purple-500">users</code>.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export const AdminPendingApproval: React.FC<AdminPendingApprovalProps> = ({ conf
           <button
             onClick={handleCheckStatus}
             disabled={checking}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs tracking-wider transition-colors cursor-pointer shadow-md shadow-rose-950 disabled:opacity-60"
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-purple-700 hover:bg-purple-500 text-white font-semibold text-xs tracking-wider transition-colors cursor-pointer shadow-md shadow-purple-950 disabled:opacity-60"
           >
             <RefreshCw className={`w-4 h-4 ${checking ? 'animate-spin' : ''}`} />
             <span>{checking ? 'Comprobando estado...' : 'Comprobar si ya fui activado'}</span>
@@ -106,7 +106,7 @@ export const AdminPendingApproval: React.FC<AdminPendingApprovalProps> = ({ conf
 
             <button
               onClick={logout}
-              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border border-rose-900/50 hover:bg-rose-950/30 text-rose-400 text-xs font-semibold transition-colors"
+              className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border border-rose-900/50 hover:bg-rose-950/30 text-purple-500 text-xs font-semibold transition-colors"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span>Cerrar Sesión</span>

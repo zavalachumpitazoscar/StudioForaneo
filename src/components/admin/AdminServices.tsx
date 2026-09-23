@@ -176,16 +176,16 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-rose-100 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-purple-100 shadow-sm">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-rose-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-purple-700" />
             <span>Catálogo Público</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#33182B]">
+          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#241235]">
             Gestión de Servicios & Tarifas
           </h2>
-          <p className="text-xs sm:text-sm text-[#5E4758]">
+          <p className="text-xs sm:text-sm text-[#554064]">
             Crea, edita y organiza los packs de contenido para redes, eventos y shoot.
           </p>
         </div>
@@ -193,15 +193,15 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
         <div className="flex items-center gap-2.5">
           <button
             onClick={() => setGuideOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#FFF9FA] hover:bg-rose-50 text-rose-700 font-semibold text-xs border border-rose-200 transition-colors cursor-pointer shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#FAF8FD] hover:bg-purple-50 text-purple-800 font-semibold text-xs border border-purple-200 transition-colors cursor-pointer shadow-2xs"
           >
-            <BookOpen className="w-3.5 h-3.5 text-rose-600" />
+            <BookOpen className="w-3.5 h-3.5 text-purple-700" />
             <span>Guía de Servicios</span>
           </button>
 
           <button
             onClick={handleStartCreate}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-semibold tracking-wide transition-all cursor-pointer shadow-md shadow-rose-200"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-xs font-semibold tracking-wide transition-all cursor-pointer shadow-md shadow-purple-500/20"
           >
             <Plus className="w-4 h-4" />
             <span>Nuevo Servicio</span>
@@ -211,19 +211,19 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
 
       {/* Edit / Create Form Modal */}
       {editingService && (
-        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-rose-200 shadow-xl space-y-6">
-          <div className="flex items-center justify-between border-b border-rose-100 pb-4">
+        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-purple-200 shadow-xl space-y-6">
+          <div className="flex items-center justify-between border-b border-purple-100 pb-4">
             <div className="space-y-0.5">
-              <span className="text-xs font-bold text-rose-600 uppercase tracking-widest">
+              <span className="text-xs font-bold text-purple-700 uppercase tracking-widest">
                 {isCreating ? 'Creación de Paquete' : 'Modificación'}
               </span>
-              <h3 className="text-xl font-bold font-serif text-[#33182B]">
+              <h3 className="text-xl font-bold font-serif text-[#241235]">
                 {isCreating ? 'Agregar Nuevo Servicio' : `Editar: ${editingService.nombre}`}
               </h3>
             </div>
             <button
               onClick={() => setEditingService(null)}
-              className="text-xs font-semibold px-3 py-1.5 rounded-xl text-[#5E4758] hover:text-[#33182B] hover:bg-rose-50 border border-rose-200"
+              className="text-xs font-semibold px-3 py-1.5 rounded-xl text-[#554064] hover:text-[#241235] hover:bg-purple-50 border border-purple-200"
             >
               Cancelar
             </button>
@@ -233,7 +233,7 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
             <div className="grid sm:grid-cols-2 gap-4">
               {/* Nombre */}
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Nombre del Servicio *
                 </label>
                 <input
@@ -242,19 +242,19 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
                   placeholder="Ej. Cobertura de Bodas en Tiempo Real"
                   value={editingService.nombre}
                   onChange={e => setEditingService({ ...editingService, nombre: e.target.value })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:ring-1 focus:ring-rose-200 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:ring-1 focus:ring-rose-200 focus:outline-none"
                 />
               </div>
 
               {/* Categoría */}
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Categoría
                 </label>
                 <select
                   value={editingService.categoria}
                   onChange={e => setEditingService({ ...editingService, categoria: e.target.value as any })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 >
                   <option value="redes">Redes Sociales (Mensual)</option>
                   <option value="eventos">Eventos & Bodas</option>
@@ -266,7 +266,7 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
 
             {/* Descripción */}
             <div className="space-y-1.5">
-              <label className="block text-xs font-bold text-[#33182B]">
+              <label className="block text-xs font-bold text-[#241235]">
                 Descripción Comercial
               </label>
               <textarea
@@ -274,13 +274,13 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
                 placeholder="Breve descripción del alcance, objetivo y beneficios del servicio para el cliente..."
                 value={editingService.descripcion}
                 onChange={e => setEditingService({ ...editingService, descripcion: e.target.value })}
-                className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none resize-none"
+                className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none resize-none"
               />
             </div>
 
             {/* Detalles Incluidos (checklist) */}
             <div className="space-y-1.5">
-              <label className="block text-xs font-bold text-[#33182B]">
+              <label className="block text-xs font-bold text-[#241235]">
                 Qué incluye el servicio (Escribe cada beneficio en una línea nueva con ENTER)
               </label>
               <textarea
@@ -288,9 +288,9 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
                 placeholder="Planificación mensual de contenidos&#10;4 Reels de alto impacto con audio tendencia&#10;Sesión de fotos de producto&#10;Luces y micrófonos profesionales"
                 value={detallesInput}
                 onChange={e => setDetallesInput(e.target.value)}
-                className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none font-mono text-[11px]"
+                className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none font-mono text-[11px]"
               />
-              <span className="text-[11px] text-[#5E4758]">
+              <span className="text-[11px] text-[#554064]">
                 Cada línea se convertirá en un check verde en la tarjeta de precios de la web.
               </span>
             </div>
@@ -298,7 +298,7 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
             <div className="grid sm:grid-cols-3 gap-4">
               {/* Tarifa Texto */}
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Precio Visible (Texto) *
                 </label>
                 <input
@@ -307,13 +307,13 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
                   placeholder="Ej. S/ 650 / mes o A cotizar"
                   value={editingService.precio}
                   onChange={e => setEditingService({ ...editingService, precio: e.target.value })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
 
               {/* Orden */}
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Posición / Orden
                 </label>
                 <input
@@ -321,13 +321,13 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
                   min={1}
                   value={editingService.orden || 1}
                   onChange={e => setEditingService({ ...editingService, orden: parseInt(e.target.value) || 1 })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
 
               {/* Imagen URL */}
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#33182B]">
+                <label className="block text-xs font-bold text-[#241235]">
                   URL de Imagen / Google Drive
                 </label>
                 <input
@@ -335,7 +335,7 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
                   placeholder="https://drive.google.com/... o enlace directo"
                   value={editingService.imagenUrl || ''}
                   onChange={e => setEditingService({ ...editingService, imagenUrl: e.target.value })}
-                  className="w-full p-3 rounded-xl bg-white border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:outline-none"
+                  className="w-full p-3 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:outline-none"
                 />
               </div>
             </div>
@@ -350,40 +350,40 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
 
             {/* Checkboxes: Destacado & Publicado */}
             <div className="flex flex-wrap items-center gap-6 pt-2">
-              <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#33182B]">
+              <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#241235]">
                 <input
                   type="checkbox"
                   checked={editingService.destacado}
                   onChange={e => setEditingService({ ...editingService, destacado: e.target.checked })}
-                  className="w-4 h-4 rounded text-rose-600 focus:ring-rose-500"
+                  className="w-4 h-4 rounded text-purple-700 focus:ring-rose-500"
                 />
                 <span>Destacar como "Más Popular" (Borde brillante)</span>
               </label>
 
-              <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#33182B]">
+              <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-[#241235]">
                 <input
                   type="checkbox"
                   checked={editingService.publicado}
                   onChange={e => setEditingService({ ...editingService, publicado: e.target.checked })}
-                  className="w-4 h-4 rounded text-rose-600 focus:ring-rose-500"
+                  className="w-4 h-4 rounded text-purple-700 focus:ring-rose-500"
                 />
                 <span>Publicado inmediatamente en el sitio web</span>
               </label>
             </div>
 
             {/* Form Actions */}
-            <div className="flex items-center justify-end gap-3 pt-4 border-t border-rose-100">
+            <div className="flex items-center justify-end gap-3 pt-4 border-t border-purple-100">
               <button
                 type="button"
                 onClick={() => setEditingService(null)}
-                className="px-4 py-2.5 rounded-xl text-xs font-semibold text-[#5E4758] hover:text-[#33182B] hover:bg-rose-50 transition-colors"
+                className="px-4 py-2.5 rounded-xl text-xs font-semibold text-[#554064] hover:text-[#241235] hover:bg-purple-50 transition-colors"
               >
                 Cancelar
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-semibold tracking-wide shadow-md shadow-rose-200 transition-all cursor-pointer disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-xs font-semibold tracking-wide shadow-md shadow-purple-500/20 transition-all cursor-pointer disabled:opacity-50"
               >
                 {loading ? 'Guardando...' : 'Guardar Servicio'}
               </button>
@@ -398,13 +398,13 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
           <div
             key={srv.id}
             className={`rounded-3xl border bg-white p-6 flex flex-col justify-between transition-all shadow-sm ${
-              srv.destacado ? 'border-rose-300 ring-2 ring-rose-200' : 'border-rose-100 hover:border-rose-200'
+              srv.destacado ? 'border-purple-300 ring-2 ring-rose-200' : 'border-purple-100 hover:border-purple-200'
             }`}
           >
             <div className="space-y-4">
               {/* Badges row */}
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-rose-700 bg-rose-50 px-3 py-1 rounded-full border border-rose-200">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-purple-800 bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
                   {srv.categoria === 'redes' ? 'Redes Sociales' : srv.categoria === 'eventos' ? 'Eventos & Bodas' : 'Full Day Shoot'}
                 </span>
 
@@ -425,14 +425,14 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
 
               {/* Title & Price */}
               <div>
-                <h4 className="text-lg font-bold font-serif text-[#33182B]">
+                <h4 className="text-lg font-bold font-serif text-[#241235]">
                   {srv.nombre}
                 </h4>
-                <p className="text-xl font-extrabold text-rose-600 font-serif mt-1">
+                <p className="text-xl font-extrabold text-purple-700 font-serif mt-1">
                   {srv.precio}
                 </p>
                 {srv.descripcion && (
-                  <p className="text-xs text-[#5E4758] mt-2 line-clamp-2">
+                  <p className="text-xs text-[#554064] mt-2 line-clamp-2">
                     {srv.descripcion}
                   </p>
                 )}
@@ -440,9 +440,9 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
 
               {/* Details list */}
               {srv.detallesIncluidos && srv.detallesIncluidos.length > 0 && (
-                <div className="space-y-1.5 pt-2 border-t border-rose-100">
-                  <span className="text-[11px] font-bold text-[#33182B] block">Incluye:</span>
-                  <ul className="space-y-1 text-xs text-[#5E4758]">
+                <div className="space-y-1.5 pt-2 border-t border-purple-100">
+                  <span className="text-[11px] font-bold text-[#241235] block">Incluye:</span>
+                  <ul className="space-y-1 text-xs text-[#554064]">
                     {srv.detallesIncluidos.slice(0, 4).map((d, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
@@ -450,7 +450,7 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
                       </li>
                     ))}
                     {srv.detallesIncluidos.length > 4 && (
-                      <li className="text-[11px] text-rose-600 italic">
+                      <li className="text-[11px] text-purple-700 italic">
                         +{srv.detallesIncluidos.length - 4} detalles adicionales
                       </li>
                     )}
@@ -460,7 +460,7 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
             </div>
 
             {/* Actions Bar */}
-            <div className="flex items-center justify-between pt-5 mt-4 border-t border-rose-100">
+            <div className="flex items-center justify-between pt-5 mt-4 border-t border-purple-100">
               <span className="text-[11px] text-neutral-400 font-mono">
                 Orden: #{srv.orden || 1}
               </span>
@@ -470,7 +470,7 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
                   onClick={() => handleToggleFeatured(srv)}
                   title={srv.destacado ? 'Quitar destacado' : 'Marcar como más popular'}
                   className={`p-2 rounded-xl transition-colors ${
-                    srv.destacado ? 'bg-amber-100 text-amber-700' : 'text-[#5E4758] hover:bg-rose-50'
+                    srv.destacado ? 'bg-amber-100 text-amber-700' : 'text-[#554064] hover:bg-purple-50'
                   }`}
                 >
                   <Star className="w-4 h-4" />
@@ -479,7 +479,7 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
                 <button
                   onClick={() => handleTogglePublish(srv)}
                   title={srv.publicado ? 'Ocultar servicio' : 'Publicar servicio'}
-                  className="p-2 rounded-xl text-[#5E4758] hover:bg-rose-50 hover:text-[#33182B] transition-colors"
+                  className="p-2 rounded-xl text-[#554064] hover:bg-purple-50 hover:text-[#241235] transition-colors"
                 >
                   {srv.publicado ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4 text-neutral-400" />}
                 </button>
@@ -487,7 +487,7 @@ export const AdminServices: React.FC<AdminServicesProps> = ({
                 <button
                   onClick={() => handleStartEdit(srv)}
                   title="Editar este servicio"
-                  className="p-2 rounded-xl text-rose-600 hover:bg-rose-50 transition-colors"
+                  className="p-2 rounded-xl text-purple-700 hover:bg-purple-50 transition-colors"
                 >
                   <Edit2 className="w-4 h-4" />
                 </button>

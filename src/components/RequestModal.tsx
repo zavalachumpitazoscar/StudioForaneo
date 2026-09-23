@@ -137,22 +137,22 @@ export const RequestModal: React.FC<RequestModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/75 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl bg-white rounded-3xl border border-rose-200 shadow-2xl overflow-hidden my-8">
+      <div className="relative w-full max-w-2xl bg-white rounded-3xl border border-purple-200 shadow-2xl overflow-hidden my-8">
         {/* Header */}
-        <div className="p-6 border-b border-rose-100 flex items-center justify-between bg-gradient-to-r from-[#FFF5F7] to-[#FFF0F3]">
+        <div className="p-6 border-b border-purple-100 flex items-center justify-between bg-gradient-to-r from-[#FAF8FD] to-[#FAF8FD]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center border border-rose-200 shadow-xs">
+            <div className="w-10 h-10 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center border border-purple-200 shadow-xs">
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-xl font-bold font-serif text-[#33182B]">
+              <h3 className="text-xl font-bold font-serif text-[#241235]">
                 {submitted
                   ? '¡Solicitud Registrada!'
                   : !userProfile
                   ? 'Iniciar Sesión para Cotizar'
                   : 'Solicitar Cotización de Servicio'}
               </h3>
-              <p className="text-xs text-rose-600 font-medium">
+              <p className="text-xs text-purple-700 font-medium">
                 Studio Foráneas • Comunicadoras PUCP
               </p>
             </div>
@@ -160,7 +160,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
           <button
             onClick={handleResetAndClose}
             aria-label="Cerrar modal"
-            className="p-2 rounded-full text-stone-400 hover:text-[#33182B] hover:bg-white transition-colors cursor-pointer"
+            className="p-2 rounded-full text-stone-400 hover:text-[#241235] hover:bg-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -171,25 +171,25 @@ export const RequestModal: React.FC<RequestModalProps> = ({
           {!userProfile ? (
             /* USER NOT LOGGED IN - AUTH GATE REQUIRED */
             <div className="space-y-6 text-center py-4">
-              <div className="w-16 h-16 rounded-3xl bg-rose-50 text-rose-600 border border-rose-200 mx-auto flex items-center justify-center shadow-xs">
-                <Lock className="w-8 h-8 text-rose-500" />
+              <div className="w-16 h-16 rounded-3xl bg-purple-50 text-purple-700 border border-purple-200 mx-auto flex items-center justify-center shadow-xs">
+                <Lock className="w-8 h-8 text-purple-600" />
               </div>
 
               <div className="space-y-2 max-w-md mx-auto">
-                <h4 className="text-xl font-bold font-serif text-[#3B1E32]">
+                <h4 className="text-xl font-bold font-serif text-[#241235]">
                   Debes iniciar sesión para solicitar cotización
                 </h4>
-                <p className="text-xs text-[#5C4054] leading-relaxed">
+                <p className="text-xs text-[#554064] leading-relaxed">
                   Para preparar tu presupuesto personalizado y que puedas dar seguimiento al estado de tu proyecto en tiempo real, ingresa o crea tu cuenta de cliente.
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#FFF9FA] border border-rose-100 text-left space-y-2.5 max-w-md mx-auto text-xs text-[#5C4054]">
-                <div className="flex items-center gap-2 font-bold text-[#3B1E32]">
-                  <ShieldCheck className="w-4 h-4 text-rose-500 shrink-0" />
+              <div className="p-4 rounded-2xl bg-[#FAF8FD] border border-purple-100 text-left space-y-2.5 max-w-md mx-auto text-xs text-[#554064]">
+                <div className="flex items-center gap-2 font-bold text-[#241235]">
+                  <ShieldCheck className="w-4 h-4 text-purple-600 shrink-0" />
                   <span>Beneficios de identificarte:</span>
                 </div>
-                <ul className="space-y-2 text-[11px] text-[#5C4054]">
+                <ul className="space-y-2 text-[11px] text-[#554064]">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                     <span>Tu cotización se vinculará a tu cuenta y podrás verla en <strong>"Mis Solicitudes"</strong>.</span>
@@ -213,7 +213,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                       onRequireLogin();
                     }
                   }}
-                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-xs tracking-wider transition-all shadow-md shadow-rose-200 cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-bold text-xs tracking-wider transition-all shadow-md shadow-purple-500/20 cursor-pointer flex items-center justify-center gap-2"
                 >
                   <User className="w-4 h-4" />
                   <span>Iniciar Sesión / Crear Cuenta</span>
@@ -221,7 +221,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                 <button
                   type="button"
                   onClick={handleResetAndClose}
-                  className="w-full sm:w-auto px-5 py-3 rounded-full border border-rose-200 text-xs font-semibold text-[#5C4054] hover:bg-rose-50 transition-colors cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-3 rounded-full border border-purple-200 text-xs font-semibold text-[#554064] hover:bg-purple-50 transition-colors cursor-pointer"
                 >
                   Volver a la Web
                 </button>
@@ -235,11 +235,11 @@ export const RequestModal: React.FC<RequestModalProps> = ({
               </div>
 
               <div className="space-y-2">
-                <h4 className="text-2xl font-bold font-serif text-[#33182B]">
+                <h4 className="text-2xl font-bold font-serif text-[#241235]">
                   ¡Gracias, {formData.clienteNombre}!
                 </h4>
-                <p className="text-[#5E4758] text-sm max-w-md mx-auto leading-relaxed">
-                  Tu solicitud para <strong className="text-rose-600">{formData.servicioSolicitado}</strong> ha sido guardada en nuestro sistema con estado <span className="text-emerald-600 font-bold">PENDIENTE</span>.
+                <p className="text-[#554064] text-sm max-w-md mx-auto leading-relaxed">
+                  Tu solicitud para <strong className="text-purple-700">{formData.servicioSolicitado}</strong> ha sido guardada en nuestro sistema con estado <span className="text-emerald-600 font-bold">PENDIENTE</span>.
                 </p>
                 <p className="text-xs text-[#8A6D81]">
                   Nathaly y Rosa revisarán tus requerimientos para enviarte la propuesta personalizada a la brevedad. Puedes seguir el estado en el menú <strong>"Mis Solicitudes"</strong>.
@@ -267,7 +267,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
               <div className="pt-2">
                 <button
                   onClick={handleResetAndClose}
-                  className="px-6 py-2.5 rounded-full border border-rose-200 text-xs font-semibold text-[#5E4758] hover:text-[#33182B] hover:bg-rose-50 transition-colors cursor-pointer"
+                  className="px-6 py-2.5 rounded-full border border-purple-200 text-xs font-semibold text-[#554064] hover:text-[#241235] hover:bg-purple-50 transition-colors cursor-pointer"
                 >
                   Cerrar ventana
                 </button>
@@ -277,13 +277,13 @@ export const RequestModal: React.FC<RequestModalProps> = ({
             /* FORM STATE - ONLY ACCESSIBLE WHEN LOGGED IN */
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Authenticated User Status Bar */}
-              <div className="flex items-center justify-between p-3 rounded-2xl bg-[#FFF9FA] border border-rose-100 text-xs text-[#5C4054]">
+              <div className="flex items-center justify-between p-3 rounded-2xl bg-[#FAF8FD] border border-purple-100 text-xs text-[#554064]">
                 <div className="flex items-center gap-2.5 truncate">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-rose-500 to-pink-500 text-white flex items-center justify-center font-bold text-[10px] shrink-0">
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-purple-600 to-violet-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0">
                     {userProfile.nombre ? userProfile.nombre[0].toUpperCase() : 'U'}
                   </div>
                   <span className="truncate">
-                    Solicitando como: <strong className="text-[#3B1E32]">{userProfile.nombre || 'Cliente'}</strong> ({userProfile.email})
+                    Solicitando como: <strong className="text-[#241235]">{userProfile.nombre || 'Cliente'}</strong> ({userProfile.email})
                   </span>
                 </div>
                 <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 shrink-0">
@@ -292,7 +292,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
               </div>
 
               {errorMsg && (
-                <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
+                <div className="p-3.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-800 text-xs font-medium">
                   {errorMsg}
                 </div>
               )}
@@ -311,7 +311,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                       placeholder="Ej. Camila Morales"
                       value={formData.clienteNombre}
                       onChange={e => setFormData({ ...formData, clienteNombre: e.target.value })}
-                      className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:bg-white focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:bg-white focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -329,7 +329,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                       placeholder="Ej. +51 987 654 321"
                       value={formData.telefono}
                       onChange={e => setFormData({ ...formData, telefono: e.target.value })}
-                      className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:bg-white focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:bg-white focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -348,7 +348,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                     placeholder="camila@ejemplo.com"
                     value={formData.correo}
                     onChange={e => setFormData({ ...formData, correo: e.target.value })}
-                    className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:bg-white focus:outline-none transition-colors"
+                    className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:bg-white focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -361,7 +361,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                 <select
                   value={formData.servicioSolicitado}
                   onChange={e => setFormData({ ...formData, servicioSolicitado: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:bg-white focus:outline-none transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:bg-white focus:outline-none transition-colors"
                 >
                   {services.map(s => (
                     <option key={s.id} value={s.nombre}>
@@ -385,7 +385,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                       placeholder="Ej. 15 de Noviembre 2025"
                       value={formData.fechaEvento}
                       onChange={e => setFormData({ ...formData, fechaEvento: e.target.value })}
-                      className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:bg-white focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:bg-white focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -401,7 +401,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                       placeholder="Ej. Miraflores, Lima / En Estudio"
                       value={formData.lugar}
                       onChange={e => setFormData({ ...formData, lugar: e.target.value })}
-                      className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:bg-white focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:bg-white focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -420,7 +420,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                       placeholder="Ej. S/ 800 - S/ 1500"
                       value={formData.presupuestoAprox}
                       onChange={e => setFormData({ ...formData, presupuestoAprox: e.target.value })}
-                      className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:bg-white focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-3.5 py-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:bg-white focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -432,7 +432,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                   <select
                     value={formData.comoNosConocio}
                     onChange={e => setFormData({ ...formData, comoNosConocio: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:bg-white focus:outline-none transition-colors"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:bg-white focus:outline-none transition-colors"
                   >
                     <option value="Instagram">Instagram (@studioforaneas)</option>
                     <option value="TikTok">TikTok</option>
@@ -454,7 +454,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                   placeholder="Ej. Es una boda íntima de 60 personas en Cieneguilla, necesitamos fotos digitales y video resumen para redes..."
                   value={formData.detalles}
                   onChange={e => setFormData({ ...formData, detalles: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FFF9FA] border border-rose-200 text-[#33182B] text-xs focus:border-rose-500 focus:bg-white focus:outline-none transition-colors resize-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-500 focus:bg-white focus:outline-none transition-colors resize-none"
                 />
               </div>
 
@@ -463,7 +463,7 @@ export const RequestModal: React.FC<RequestModalProps> = ({
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-xs tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-rose-200 disabled:opacity-60"
+                  className="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-bold text-xs tracking-wider transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-purple-500/20 disabled:opacity-60"
                 >
                   <Send className="w-4 h-4" />
                   <span>{loading ? 'Enviando solicitud...' : 'Enviar Solicitud de Cotización'}</span>

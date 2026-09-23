@@ -88,35 +88,35 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header
       className={`sticky top-0 z-30 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#FFF9FA]/95 backdrop-blur-md border-b border-rose-100 shadow-sm shadow-rose-950/5 py-3'
-          : 'bg-[#FFF9FA]/85 backdrop-blur-sm border-b border-rose-100/60 py-4'
+          ? 'bg-[#FAF8FC]/95 backdrop-blur-md border-b border-purple-100 shadow-sm shadow-purple-950/5 py-3'
+          : 'bg-[#FAF8FC]/85 backdrop-blur-sm border-b border-purple-100/60 py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <a href="#" className="flex items-center gap-3 group text-left">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-500 to-pink-500 p-0.5 shadow-md shadow-rose-200">
-            <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center group-hover:bg-rose-50/50 transition-colors">
-              <Camera className="w-5 h-5 text-rose-600 group-hover:text-rose-500 transition-colors" />
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-violet-600 p-0.5 shadow-md shadow-purple-500/20">
+            <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center group-hover:bg-purple-50/50 transition-colors">
+              <Camera className="w-5 h-5 text-purple-700 group-hover:text-purple-600 transition-colors" />
             </div>
           </div>
           <div>
-            <span className="block text-lg sm:text-xl font-bold tracking-tight font-serif text-[#3B1E32]">
+            <span className="block text-lg sm:text-xl font-bold tracking-tight font-serif text-[#241235]">
               {config.nombreComercial || 'Studio Foráneas'}
             </span>
-            <span className="block text-[10px] tracking-widest text-rose-600 font-semibold uppercase">
+            <span className="block text-[10px] tracking-widest text-purple-700 font-semibold uppercase">
               Producción Audiovisual PUCP
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[#5C4054]">
+        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[#554064]">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="hover:text-rose-600 transition-colors duration-200 py-1"
+              className="hover:text-purple-700 transition-colors duration-200 py-1"
             >
               {link.label}
             </a>
@@ -138,9 +138,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Request Quote Button */}
           <button
             onClick={onRequestQuote}
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-semibold tracking-wider transition-all duration-200 shadow-md shadow-rose-200 cursor-pointer"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-xs font-semibold tracking-wider transition-all duration-200 shadow-md shadow-purple-500/20 cursor-pointer"
           >
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-3.5 h-3.5 text-lime-300" />
             <span>Solicitar Cotización</span>
           </button>
 
@@ -148,42 +148,42 @@ export const Navbar: React.FC<NavbarProps> = ({
           {!userProfile ? (
             <button
               onClick={onOpenAuth}
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-rose-200 bg-white hover:bg-rose-50 text-[#3B1E32] hover:text-rose-600 text-xs font-semibold tracking-wide transition-all shadow-xs cursor-pointer"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border border-purple-200 bg-white hover:bg-purple-50 text-[#241235] hover:text-purple-700 text-xs font-semibold tracking-wide transition-all shadow-xs cursor-pointer"
             >
-              <User className="w-4 h-4 text-rose-500" />
+              <User className="w-4 h-4 text-purple-600" />
               <span>Iniciar Sesión</span>
             </button>
           ) : (
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                className="flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-rose-200/90 bg-white hover:bg-rose-50 text-[#3B1E32] text-xs font-medium transition-all shadow-xs cursor-pointer"
+                className="flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-purple-200 bg-white hover:bg-purple-50 text-[#241235] text-xs font-medium transition-all shadow-xs cursor-pointer"
               >
-                <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-rose-500 to-pink-500 p-0.5 flex items-center justify-center text-white text-xs font-bold font-serif shadow-2xs">
+                <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-purple-600 to-violet-600 p-0.5 flex items-center justify-center text-white text-xs font-bold font-serif shadow-2xs">
                   {userProfile.nombre ? userProfile.nombre[0].toUpperCase() : (userProfile.email ? userProfile.email[0].toUpperCase() : 'U')}
                 </div>
                 <div className="text-left hidden xl:block">
-                  <span className="block font-bold text-xs text-[#3B1E32] max-w-[100px] truncate leading-tight">
+                  <span className="block font-bold text-xs text-[#241235] max-w-[100px] truncate leading-tight">
                     {userProfile.nombre || userProfile.email.split('@')[0]}
                   </span>
-                  <span className={`block text-[9px] font-extrabold uppercase tracking-wider ${isAdmin ? 'text-rose-600' : 'text-stone-500'}`}>
+                  <span className={`block text-[9px] font-extrabold uppercase tracking-wider ${isAdmin ? 'text-purple-700' : 'text-stone-500'}`}>
                     {isAdmin ? 'Admin' : 'Cliente'}
                   </span>
                 </div>
-                <ChevronDown className={`w-3.5 h-3.5 text-stone-400 transition-transform ${userDropdownOpen ? 'rotate-180 text-rose-600' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-stone-400 transition-transform ${userDropdownOpen ? 'rotate-180 text-purple-700' : ''}`} />
               </button>
 
               {/* USER DROPDOWN MENU */}
               {userDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-72 bg-white rounded-3xl border border-rose-100 shadow-2xl overflow-hidden z-50 animate-in fade-in zoom-in-95 duration-150 p-2 space-y-1 text-left">
+                <div className="absolute right-0 mt-2 w-72 bg-white rounded-3xl border border-purple-100 shadow-2xl overflow-hidden z-50 animate-in fade-in zoom-in-95 duration-150 p-2 space-y-1 text-left">
                   {/* Header info */}
-                  <div className="p-3 bg-gradient-to-br from-rose-50/80 to-[#FFF9FA] rounded-2xl border border-rose-100/60 mb-2">
+                  <div className="p-3 bg-gradient-to-br from-purple-50 to-[#FAF8FD] rounded-2xl border border-purple-100/60 mb-2">
                     <div className="flex items-center justify-between gap-1 mb-1">
-                      <span className="font-bold text-xs text-[#3B1E32] truncate">
+                      <span className="font-bold text-xs text-[#241235] truncate">
                         {userProfile.nombre || 'Mi Perfil'}
                       </span>
                       {isAdmin ? (
-                        <span className="px-2 py-0.5 rounded-full bg-rose-600 text-white text-[9px] font-extrabold uppercase tracking-wider">
+                        <span className="px-2 py-0.5 rounded-full bg-purple-700 text-white text-[9px] font-extrabold uppercase tracking-wider">
                           Admin
                         </span>
                       ) : (
@@ -192,7 +192,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         </span>
                       )}
                     </div>
-                    <p className="text-[11px] text-[#5C4054] truncate">
+                    <p className="text-[11px] text-[#554064] truncate">
                       {userProfile.email}
                     </p>
                   </div>
@@ -204,7 +204,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         setUserDropdownOpen(false);
                         onOpenAdmin();
                       }}
-                      className="w-full p-2.5 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white flex items-center gap-3 transition-all cursor-pointer shadow-md shadow-rose-200 text-left"
+                      className="w-full p-2.5 rounded-2xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white flex items-center gap-3 transition-all cursor-pointer shadow-md shadow-purple-500/20 text-left"
                     >
                       <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
                         <LayoutDashboard className="w-4 h-4 text-white" />
@@ -213,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         <span className="block font-bold text-xs tracking-wide">
                           Módulo Administrador
                         </span>
-                        <span className="block text-[10px] text-rose-100 truncate">
+                        <span className="block text-[10px] text-purple-100 truncate">
                           Entrar al panel de gestión
                         </span>
                       </div>
@@ -239,16 +239,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                       setUserDropdownOpen(false);
                       onOpenRequests();
                     }}
-                    className="w-full p-2.5 rounded-2xl hover:bg-rose-50/70 text-[#3B1E32] flex items-center gap-3 transition-colors cursor-pointer text-left"
+                    className="w-full p-2.5 rounded-2xl hover:bg-purple-50/70 text-[#241235] flex items-center gap-3 transition-colors cursor-pointer text-left"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 border border-rose-100">
+                    <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center shrink-0 border border-purple-100">
                       <FileText className="w-4 h-4" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="block font-bold text-xs">
                         Mis Solicitudes
                       </span>
-                      <span className="block text-[10px] text-[#5C4054]">
+                      <span className="block text-[10px] text-[#554064]">
                         Ver estado de mis cotizaciones
                       </span>
                     </div>
@@ -259,7 +259,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       setUserDropdownOpen(false);
                       onOpenAccount();
                     }}
-                    className="w-full p-2.5 rounded-2xl hover:bg-rose-50/70 text-[#3B1E32] flex items-center gap-3 transition-colors cursor-pointer text-left"
+                    className="w-full p-2.5 rounded-2xl hover:bg-purple-50/70 text-[#241235] flex items-center gap-3 transition-colors cursor-pointer text-left"
                   >
                     <div className="w-8 h-8 rounded-xl bg-stone-50 text-stone-600 flex items-center justify-center shrink-0 border border-stone-100">
                       <User className="w-4 h-4" />
@@ -268,7 +268,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <span className="block font-bold text-xs">
                         Información de Cuenta
                       </span>
-                      <span className="block text-[10px] text-[#5C4054]">
+                      <span className="block text-[10px] text-[#554064]">
                         Ver detalles de mi perfil
                       </span>
                     </div>
@@ -277,9 +277,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <div className="pt-1 border-t border-stone-100">
                     <button
                       onClick={handleLogoutClick}
-                      className="w-full p-2 rounded-xl hover:bg-rose-50 text-rose-700 font-bold text-xs flex items-center gap-2 transition-colors cursor-pointer"
+                      className="w-full p-2 rounded-xl hover:bg-purple-50 text-purple-800 font-bold text-xs flex items-center gap-2 transition-colors cursor-pointer"
                     >
-                      <LogOut className="w-3.5 h-3.5 text-rose-600" />
+                      <LogOut className="w-3.5 h-3.5 text-purple-700" />
                       <span>Cerrar Sesión</span>
                     </button>
                   </div>
@@ -294,7 +294,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {userProfile ? (
             <button
               onClick={onOpenAccount}
-              className="w-8 h-8 rounded-full bg-gradient-to-tr from-rose-500 to-pink-500 text-white font-bold text-xs flex items-center justify-center shadow-xs"
+              className="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-600 to-violet-600 text-white font-bold text-xs flex items-center justify-center shadow-xs"
               title="Mi Cuenta"
             >
               {userProfile.nombre ? userProfile.nombre[0].toUpperCase() : 'U'}
@@ -302,7 +302,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           ) : (
             <button
               onClick={onOpenAuth}
-              className="p-2 text-stone-600 hover:text-rose-600"
+              className="p-2 text-stone-600 hover:text-purple-700"
               title="Iniciar Sesión"
             >
               <User className="w-5 h-5" />
@@ -312,7 +312,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Abrir menú"
-            className="p-2.5 rounded-xl bg-white text-[#3B1E32] hover:text-rose-600 border border-rose-200 shadow-sm"
+            className="p-2.5 rounded-xl bg-white text-[#241235] hover:text-purple-700 border border-purple-200 shadow-sm"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -321,20 +321,20 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#FFF9FA]/98 backdrop-blur-xl border-b border-rose-100 px-6 py-6 space-y-4 shadow-xl text-[#3B1E32]">
+        <div className="lg:hidden bg-[#FAF8FC]/98 backdrop-blur-xl border-b border-purple-100 px-6 py-6 space-y-4 shadow-xl text-[#241235]">
           {/* User state in mobile menu */}
           {userProfile ? (
-            <div className="p-4 bg-white rounded-2xl border border-rose-100 space-y-3 shadow-xs">
+            <div className="p-4 bg-white rounded-2xl border border-purple-100 space-y-3 shadow-xs">
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="block font-bold text-xs text-[#3B1E32]">
+                  <span className="block font-bold text-xs text-[#241235]">
                     {userProfile.nombre || 'Mi Cuenta'}
                   </span>
-                  <span className="block text-[11px] text-[#5C4054]">
+                  <span className="block text-[11px] text-[#554064]">
                     {userProfile.email}
                   </span>
                 </div>
-                <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${isAdmin ? 'bg-rose-100 text-rose-700' : 'bg-stone-100 text-stone-600'}`}>
+                <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${isAdmin ? 'bg-purple-100 text-purple-800' : 'bg-stone-100 text-stone-600'}`}>
                   {isAdmin ? 'Admin' : 'Cliente'}
                 </span>
               </div>
@@ -346,7 +346,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     setMobileMenuOpen(false);
                     onOpenAdmin();
                   }}
-                  className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl bg-rose-600 text-white font-bold text-xs shadow-md shadow-rose-200"
+                  className="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl bg-purple-700 hover:bg-purple-800 text-white font-bold text-xs shadow-md shadow-purple-500/20"
                 >
                   <LayoutDashboard className="w-4 h-4" />
                   <span>Entrar al Módulo Administrador</span>
@@ -359,7 +359,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     setMobileMenuOpen(false);
                     onOpenRequests();
                   }}
-                  className="p-2 rounded-xl bg-rose-50 text-rose-700 font-semibold text-xs border border-rose-100"
+                  className="p-2 rounded-xl bg-purple-50 text-purple-800 font-semibold text-xs border border-purple-100"
                 >
                   Mis Solicitudes
                 </button>
@@ -377,9 +377,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenAuth();
               }}
-              className="w-full flex items-center justify-center gap-2 p-3 rounded-2xl bg-white border border-rose-200 text-[#3B1E32] font-bold text-xs shadow-xs"
+              className="w-full flex items-center justify-center gap-2 p-3 rounded-2xl bg-white border border-purple-200 text-[#241235] font-bold text-xs shadow-xs"
             >
-              <User className="w-4 h-4 text-rose-500" />
+              <User className="w-4 h-4 text-purple-600" />
               <span>Iniciar Sesión / Registrarse</span>
             </button>
           )}
@@ -390,7 +390,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#5C4054] hover:text-rose-600 py-2 border-b border-rose-100/60 transition-colors font-medium text-sm"
+                className="text-[#554064] hover:text-purple-700 py-2 border-b border-purple-100/60 transition-colors font-medium text-sm"
               >
                 {link.label}
               </a>
@@ -403,9 +403,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onRequestQuote();
               }}
-              className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-rose-600 to-pink-600 text-white font-semibold text-sm shadow-md shadow-rose-200"
+              className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold text-sm shadow-md shadow-purple-500/20"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 text-lime-300" />
               <span>Solicitar Cotización</span>
             </button>
 

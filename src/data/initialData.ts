@@ -4,9 +4,63 @@ export const INITIAL_SITE_CONFIG: SiteConfig = {
   nombreComercial: 'Studio Foráneas',
   lema: 'Creamos contenido auténtico que conecta',
   descripcion: 'Producción audiovisual, estrategia digital y cobertura de eventos por comunicadoras de la PUCP. Ayudamos a las marcas a comunicar su esencia de manera clara, atractiva y coherente.',
+  
+  // Hero
+  heroBadge: 'PUCP • Producción Audiovisual, Redes Sociales & Bodas',
   heroTitulo: 'Contenido que comunica la esencia de tu marca',
   heroSubtitulo: 'Estrategia comercial, creación de contenido para redes sociales, producción audiovisual y cobertura de bodas y eventos especiales.',
+  heroBotonPrincipalTexto: 'Solicitar Cotización',
+  heroBotonSecundarioTexto: 'Ver Trabajos & Portafolio',
   heroImagen: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1600&auto=format&fit=crop',
+
+  // Hero Métricas
+  heroMetrica1Valor: 'S/. 500',
+  heroMetrica1Label: 'Packs mensuales desde',
+  heroMetrica2Valor: 'En Vivo',
+  heroMetrica2Label: 'Stories y Reels en eventos',
+  heroMetrica3Valor: '100% Pro',
+  heroMetrica3Label: 'Luces, micros y trípodes',
+  heroMetrica4Valor: 'PUCP',
+  heroMetrica4Label: 'Estrategia + Producción',
+
+  // Encabezados de Secciones
+  serviciosBadge: 'Nuestros Servicios',
+  serviciosTitulo: 'Hacemos realidad lo que necesites',
+  serviciosSubtitulo: 'Planes flexibles pensados para negocios, marcas personales y eventos especiales. Elige el plan que mejor se adapte a tu proyecto.',
+
+  portafolioBadge: 'Portafolio Visual',
+  portafolioTitulo: 'Cada toma cuenta una historia única',
+  portafolioSubtitulo: 'Fotografía editorial, cobertura de bodas y campañas comerciales con dirección de arte y edición profesional.',
+
+  videosBadge: 'Producción en Movimiento',
+  videosTitulo: 'Videos, Reels & Coberturas',
+  videosSubtitulo: 'Showreels cinematográficos, resúmenes dinámicos para redes sociales y filmación documental con edición profesional y etalonaje de color.',
+
+  // ¿Quiénes Somos?
+  quienesSomosBadge: '¿Quiénes Somos?',
+  quienesSomosTitulo: 'Unimos visión audiovisual & estrategia de ventas',
+  quienesSomosDescripcion: 'Combinamos nuestras fortalezas y perspectivas para crear contenido auténtico, estratégico y cercano a las audiencias. Nuestro objetivo es ayudar a las marcas a comunicar su esencia de una manera clara, atractiva y coherente.',
+
+  // Fundadora 1
+  fundadora1Nombre: 'Nathaly Vergara',
+  fundadora1Cargo: 'Comunicadora Audiovisual • PUCP',
+  fundadora1Bio: 'Comunicadora Audiovisual por la Pontificia Universidad Católica del Perú (PUCP) con amplia experiencia en producción audiovisual, creación de contenido, manejo de redes sociales, redacción creativa, edición profesional y estrategia digital.',
+  fundadora1Tags: 'Dirección Audiovisual, Edición & Guiones, Reels Dinámicos',
+  fundadora1Foto: '',
+
+  // Fundadora 2
+  fundadora2Nombre: 'Rosa Velásquez',
+  fundadora2Cargo: 'Gestora Empresarial y Social • PUCP',
+  fundadora2Bio: 'Gestora empresarial y social por la Pontificia Universidad Católica del Perú (PUCP), con experiencia en el área comercial y en creación de contenido. Combina estrategias de venta con crecimiento digital para potenciar marcas y resultados reales.',
+  fundadora2Tags: 'Estrategia Comercial, Crecimiento Digital, Planificación de Ventas',
+  fundadora2Foto: '',
+
+  // Beneficios & Consideraciones
+  beneficiosTitulo: 'Todos nuestros planes de contenido para redes sociales incluyen:',
+  beneficiosLista: 'Planificación mensual de contenidos estratégicos\nDesarrollo de ideas y conceptos creativos\nCreación de las piezas contempladas en tu plan\nRedacción de captions persuasivos para engagement\nProgramación y publicación en la red social escogida\nCoordinación y seguimiento del calendario de contenidos',
+  consideracionesTexto: 'Consideraciones importantes: Las locaciones, desplazamientos o modelos especiales se coordinan previamente. Cualquier pieza o contenido adicional podrá ser cotizado por separado a la medida de tus necesidades.',
+
+  // Contacto & Redes
   whatsappPrincipal: '+51997534727',
   whatsappSecundario: '+51947718479',
   correo: 'studioforaneas@gmail.com',
@@ -16,6 +70,10 @@ export const INITIAL_SITE_CONFIG: SiteConfig = {
   facebookUrl: 'https://facebook.com',
   tiktokUrl: 'https://tiktok.com',
   youtubeUrl: 'https://youtube.com',
+
+  // Footer & Banner
+  footerCtaTitulo: '¿Lista para impulsar tu marca o inmortalizar tu evento?',
+  footerCtaSubtitulo: 'Conversemos hoy mismo para diseñar un plan audiovisual y estratégico hecho a tu medida.',
   footerTexto: '© 2026 Studio Foráneas. Todos los derechos reservados. Diseñado para marcas y creadores.'
 };
 

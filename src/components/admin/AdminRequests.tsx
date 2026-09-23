@@ -127,29 +127,29 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
   return (
     <div className="space-y-6 text-left animate-in fade-in duration-200">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-rose-100 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-3xl bg-white border border-purple-100 shadow-sm">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider">
-            <Inbox className="w-3.5 h-3.5 text-rose-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold uppercase tracking-wider">
+            <Inbox className="w-3.5 h-3.5 text-purple-700" />
             <span>Módulo de Cotizaciones</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#3B1E32]">
+          <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#241235]">
             Gestión de Solicitudes de Clientes
           </h2>
-          <p className="text-xs text-[#5C4054]">
+          <p className="text-xs text-[#554064]">
             Administra los pedidos de cotización, cambia estados y contacta a los clientes vía WhatsApp.
           </p>
         </div>
 
         <div className="flex items-center gap-2 self-start sm:self-center">
-          <span className="px-3.5 py-1.5 rounded-full bg-rose-100 text-rose-700 font-bold text-xs border border-rose-200">
+          <span className="px-3.5 py-1.5 rounded-full bg-purple-100 text-purple-800 font-bold text-xs border border-purple-200">
             {requests.length} Solicitud{requests.length !== 1 ? 'es' : ''} en total
           </span>
         </div>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white p-4 sm:p-5 rounded-3xl border border-rose-100 shadow-sm">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white p-4 sm:p-5 rounded-3xl border border-purple-100 shadow-sm">
         {/* Search Input */}
         <div className="relative w-full md:w-80">
           <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -158,7 +158,7 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
             placeholder="Buscar por cliente, correo o servicio..."
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3.5 py-2.5 rounded-2xl bg-[#FFF9FA] border border-rose-200 text-[#3B1E32] placeholder-stone-400 text-xs focus:border-rose-500 focus:outline-none transition-colors"
+            className="w-full pl-9 pr-3.5 py-2.5 rounded-2xl bg-[#FAF8FD] border border-purple-200 text-[#241235] placeholder-stone-400 text-xs focus:border-purple-500 focus:outline-none transition-colors"
           />
         </div>
 
@@ -168,8 +168,8 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
             onClick={() => setFilterStatus('TODAS')}
             className={`px-3.5 py-2 rounded-xl font-bold whitespace-nowrap transition-all cursor-pointer ${
               filterStatus === 'TODAS'
-                ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-sm shadow-rose-200'
-                : 'bg-[#FFF9FA] text-[#5C4054] border border-rose-200 hover:text-rose-600 hover:bg-rose-50'
+                ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-sm shadow-purple-500/20'
+                : 'bg-[#FAF8FD] text-[#554064] border border-purple-200 hover:text-purple-700 hover:bg-purple-50'
             }`}
           >
             Todas ({requests.length})
@@ -182,8 +182,8 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
                 onClick={() => setFilterStatus(st)}
                 className={`px-3.5 py-2 rounded-xl font-bold whitespace-nowrap transition-all cursor-pointer ${
                   filterStatus === st
-                    ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-sm shadow-rose-200'
-                    : 'bg-[#FFF9FA] text-[#5C4054] border border-rose-200 hover:text-rose-600 hover:bg-rose-50'
+                    ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-sm shadow-purple-500/20'
+                    : 'bg-[#FAF8FD] text-[#554064] border border-purple-200 hover:text-purple-700 hover:bg-purple-50'
                 }`}
               >
                 {st} ({count})
@@ -198,42 +198,42 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
         {filteredRequests.map((req) => (
           <div
             key={req.id}
-            className="p-5 sm:p-6 rounded-3xl bg-white border border-rose-100 hover:border-rose-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all"
+            className="p-5 sm:p-6 rounded-3xl bg-white border border-purple-100 hover:border-purple-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all"
           >
             <div className="space-y-2 flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="font-bold text-base font-serif text-[#3B1E32]">
+                <span className="font-bold text-base font-serif text-[#241235]">
                   {req.clienteNombre}
                 </span>
                 <span className={`text-[10px] px-2.5 py-0.5 rounded-full border font-bold uppercase tracking-wider ${getStatusBadge(req.estado)}`}>
                   {req.estado}
                 </span>
-                <span className="text-xs text-rose-600 font-bold">
+                <span className="text-xs text-purple-700 font-bold">
                   • {req.servicioSolicitado}
                 </span>
               </div>
 
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#5C4054]">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#554064]">
                 <span className="flex items-center gap-1">
-                  <Phone className="w-3.5 h-3.5 text-rose-400" />
+                  <Phone className="w-3.5 h-3.5 text-purple-500" />
                   {req.telefono}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Mail className="w-3.5 h-3.5 text-rose-400" />
+                  <Mail className="w-3.5 h-3.5 text-purple-500" />
                   {req.correo}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Calendar className="w-3.5 h-3.5 text-rose-400" />
+                  <Calendar className="w-3.5 h-3.5 text-purple-500" />
                   {req.fechaEvento || 'Por coordinar'}
                 </span>
                 <span className="flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-rose-400" />
+                  <MapPin className="w-3.5 h-3.5 text-purple-500" />
                   {req.lugar || 'Lima'}
                 </span>
               </div>
 
               {req.detalles && (
-                <p className="text-xs text-[#5C4054] line-clamp-1 italic bg-[#FFF9FA] border border-rose-100/70 p-2.5 rounded-xl">
+                <p className="text-xs text-[#554064] line-clamp-1 italic bg-[#FAF8FD] border border-purple-100/70 p-2.5 rounded-xl">
                   "{req.detalles}"
                 </p>
               )}
@@ -258,7 +258,7 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
 
               <button
                 onClick={() => handleOpenDetail(req)}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-semibold transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-800 border border-purple-200 text-xs font-semibold transition-colors cursor-pointer"
               >
                 <Eye className="w-3.5 h-3.5" />
                 <span>Ver Detalle</span>
@@ -276,10 +276,10 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
         ))}
 
         {filteredRequests.length === 0 && (
-          <div className="text-center py-16 bg-white rounded-3xl border border-rose-100 shadow-sm p-8 space-y-2">
-            <Inbox className="w-10 h-10 text-rose-300 mx-auto" />
-            <h4 className="text-sm font-bold text-[#3B1E32]">No hay solicitudes que mostrar</h4>
-            <p className="text-[#5C4054] text-xs">
+          <div className="text-center py-16 bg-white rounded-3xl border border-purple-100 shadow-sm p-8 space-y-2">
+            <Inbox className="w-10 h-10 text-purple-300 mx-auto" />
+            <h4 className="text-sm font-bold text-[#241235]">No hay solicitudes que mostrar</h4>
+            <p className="text-[#554064] text-xs">
               No se encontraron solicitudes con el filtro o término de búsqueda aplicado.
             </p>
           </div>
@@ -288,22 +288,22 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
 
       {/* DETAIL MODAL */}
       {selectedRequest && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#3B1E32]/40 backdrop-blur-xs animate-in fade-in duration-200">
-          <div className="relative w-full max-w-2xl bg-white rounded-3xl border border-rose-100 shadow-2xl overflow-hidden p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto text-left">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#241235]/40 backdrop-blur-xs animate-in fade-in duration-200">
+          <div className="relative w-full max-w-2xl bg-white rounded-3xl border border-purple-100 shadow-2xl overflow-hidden p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto text-left">
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-rose-100 pb-4">
+            <div className="flex items-center justify-between border-b border-purple-100 pb-4">
               <div>
-                <span className="text-[10px] uppercase font-bold text-rose-600 tracking-wider">
+                <span className="text-[10px] uppercase font-bold text-purple-700 tracking-wider">
                   Detalle de Solicitud #{selectedRequest.id.slice(0, 12)}
                 </span>
-                <h3 className="text-xl font-bold font-serif text-[#3B1E32]">
+                <h3 className="text-xl font-bold font-serif text-[#241235]">
                   {selectedRequest.clienteNombre}
                 </h3>
               </div>
 
               <button
                 onClick={() => setSelectedRequest(null)}
-                className="p-2 rounded-xl text-stone-400 hover:text-[#3B1E32] hover:bg-rose-50 transition-colors"
+                className="p-2 rounded-xl text-stone-400 hover:text-[#241235] hover:bg-purple-50 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -311,48 +311,48 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
 
             {/* Info Grid */}
             <div className="grid sm:grid-cols-2 gap-3 text-xs">
-              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FFF9FA] border border-rose-100">
+              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FAF8FD] border border-purple-100">
                 <span className="text-[#6E4965] font-semibold block">Servicio Solicitado:</span>
-                <span className="text-[#3B1E32] font-bold text-sm">{selectedRequest.servicioSolicitado}</span>
+                <span className="text-[#241235] font-bold text-sm">{selectedRequest.servicioSolicitado}</span>
               </div>
 
-              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FFF9FA] border border-rose-100">
+              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FAF8FD] border border-purple-100">
                 <span className="text-[#6E4965] font-semibold block">Teléfono / WhatsApp:</span>
-                <span className="text-[#3B1E32] font-bold">{selectedRequest.telefono}</span>
+                <span className="text-[#241235] font-bold">{selectedRequest.telefono}</span>
               </div>
 
-              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FFF9FA] border border-rose-100">
+              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FAF8FD] border border-purple-100">
                 <span className="text-[#6E4965] font-semibold block">Correo Electrónico:</span>
-                <span className="text-[#3B1E32]">{selectedRequest.correo}</span>
+                <span className="text-[#241235]">{selectedRequest.correo}</span>
               </div>
 
-              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FFF9FA] border border-rose-100">
+              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FAF8FD] border border-purple-100">
                 <span className="text-[#6E4965] font-semibold block">Fecha Estimada del Evento:</span>
-                <span className="text-[#3B1E32]">{selectedRequest.fechaEvento || 'No especificada'}</span>
+                <span className="text-[#241235]">{selectedRequest.fechaEvento || 'No especificada'}</span>
               </div>
 
-              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FFF9FA] border border-rose-100">
+              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FAF8FD] border border-purple-100">
                 <span className="text-[#6E4965] font-semibold block">Lugar / Locación:</span>
-                <span className="text-[#3B1E32]">{selectedRequest.lugar || 'No especificado'}</span>
+                <span className="text-[#241235]">{selectedRequest.lugar || 'No especificado'}</span>
               </div>
 
-              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FFF9FA] border border-rose-100">
+              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FAF8FD] border border-purple-100">
                 <span className="text-[#6E4965] font-semibold block">Presupuesto Aprox:</span>
-                <span className="text-[#3B1E32]">{selectedRequest.presupuestoAprox || 'No especificado'}</span>
+                <span className="text-[#241235]">{selectedRequest.presupuestoAprox || 'No especificado'}</span>
               </div>
 
-              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FFF9FA] border border-rose-100 sm:col-span-2">
+              <div className="space-y-1 p-3.5 rounded-2xl bg-[#FAF8FD] border border-purple-100 sm:col-span-2">
                 <span className="text-[#6E4965] font-semibold block">¿Cómo nos conoció?:</span>
-                <span className="text-[#3B1E32]">{selectedRequest.comoNosConocio || 'Instagram / Recomendación'}</span>
+                <span className="text-[#241235]">{selectedRequest.comoNosConocio || 'Instagram / Recomendación'}</span>
               </div>
             </div>
 
             {/* Mensaje original */}
             <div className="space-y-1.5">
-              <span className="text-xs font-bold text-[#3B1E32]">
+              <span className="text-xs font-bold text-[#241235]">
                 Detalles enviados por el cliente:
               </span>
-              <div className="p-4 rounded-2xl bg-[#FFF9FA] border border-rose-100 text-xs text-[#5C4054] leading-relaxed italic">
+              <div className="p-4 rounded-2xl bg-[#FAF8FD] border border-purple-100 text-xs text-[#554064] leading-relaxed italic">
                 {selectedRequest.detalles || 'Sin detalles adicionales especificados.'}
               </div>
             </div>
@@ -360,13 +360,13 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
             {/* Status Switcher & WhatsApp */}
             <div className="grid sm:grid-cols-2 gap-4 pt-2">
               <div className="space-y-1.5">
-                <label className="block text-xs font-bold text-[#3B1E32]">
+                <label className="block text-xs font-bold text-[#241235]">
                   Estado de la Solicitud
                 </label>
                 <select
                   value={currentStatus}
                   onChange={e => setCurrentStatus(e.target.value as RequestStatus)}
-                  className="w-full p-2.5 rounded-xl bg-white border border-rose-200 text-[#3B1E32] text-xs font-semibold focus:border-rose-500 focus:outline-none shadow-2xs"
+                  className="w-full p-2.5 rounded-xl bg-white border border-purple-200 text-[#241235] text-xs font-semibold focus:border-purple-500 focus:outline-none shadow-2xs"
                 >
                   {statusOptions.map(st => (
                     <option key={st} value={st}>{st}</option>
@@ -387,7 +387,7 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
 
             {/* Observaciones Internas */}
             <div className="space-y-1.5">
-              <label className="block text-xs font-bold text-[#3B1E32]">
+              <label className="block text-xs font-bold text-[#241235]">
                 Observaciones Internas / Notas Privadas (Solo visibles para administradoras)
               </label>
               <textarea
@@ -395,12 +395,12 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
                 placeholder="Ej. Se envió cotización de S/. 700. Llamada agendada para el jueves..."
                 value={internalNotes}
                 onChange={e => setInternalNotes(e.target.value)}
-                className="w-full p-3 rounded-2xl bg-white border border-rose-200 text-[#3B1E32] placeholder-stone-400 text-xs focus:border-rose-500 focus:outline-none resize-none shadow-2xs"
+                className="w-full p-3 rounded-2xl bg-white border border-purple-200 text-[#241235] placeholder-stone-400 text-xs focus:border-purple-500 focus:outline-none resize-none shadow-2xs"
               />
             </div>
 
             {/* Actions */}
-            <div className="flex items-center justify-between pt-4 border-t border-rose-100">
+            <div className="flex items-center justify-between pt-4 border-t border-purple-100">
               <button
                 onClick={() => setRequestToDelete(selectedRequest)}
                 className="text-xs text-red-600 hover:text-red-700 hover:underline flex items-center gap-1.5 font-semibold cursor-pointer"
@@ -412,14 +412,14 @@ export const AdminRequests: React.FC<AdminRequestsProps> = ({
               <div className="flex gap-2">
                 <button
                   onClick={() => setSelectedRequest(null)}
-                  className="px-4 py-2.5 rounded-xl border border-rose-200 bg-white hover:bg-rose-50 text-[#3B1E32] text-xs font-semibold cursor-pointer"
+                  className="px-4 py-2.5 rounded-xl border border-purple-200 bg-white hover:bg-purple-50 text-[#241235] text-xs font-semibold cursor-pointer"
                 >
                   Cerrar
                 </button>
                 <button
                   onClick={handleSaveDetails}
                   disabled={isSaving}
-                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white text-xs font-bold shadow-md shadow-rose-200 flex items-center gap-1.5 disabled:opacity-50 cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-xs font-bold shadow-md shadow-purple-500/20 flex items-center gap-1.5 disabled:opacity-50 cursor-pointer"
                 >
                   <Save className="w-3.5 h-3.5" />
                   <span>{isSaving ? 'Guardando...' : 'Guardar Cambios'}</span>

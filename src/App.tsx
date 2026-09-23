@@ -376,19 +376,21 @@ function AppContent() {
       <ServicesSection
         services={services}
         onRequestService={handleOpenRequestQuote}
+        config={config}
       />
 
       {/* 5. Visual Portfolio (Gallery & Carousel) */}
       <PortfolioSection
         items={portfolio}
         onSelectPhoto={setSelectedPhoto}
+        config={config}
       />
 
       {/* 6. Videos & Reels Showcase */}
-      <VideosSection videos={videos} />
+      <VideosSection videos={videos} config={config} />
 
       {/* 7. About Us Section (Nathaly & Rosa PUCP) */}
-      <AboutSection />
+      <AboutSection config={config} />
 
       {/* 8. Footer */}
       <Footer

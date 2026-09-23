@@ -100,28 +100,28 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-[#FFF9FA] text-[#33182B] flex flex-col selection:bg-rose-100 selection:text-rose-900">
+    <div className="min-h-screen bg-[#FAF8FD] text-[#241235] flex flex-col selection:bg-purple-100 selection:text-purple-950">
       {/* Top Header */}
-      <header className="sticky top-0 z-30 bg-[#FFF9FA]/90 backdrop-blur-md border-b border-rose-100 px-4 sm:px-6 py-3 flex items-center justify-between shadow-xs shadow-rose-950/5">
+      <header className="sticky top-0 z-30 bg-[#FAF8FD]/90 backdrop-blur-md border-b border-purple-100 px-4 sm:px-6 py-3 flex items-center justify-between shadow-xs shadow-purple-950/5">
         <div className="flex items-center gap-3">
           <button
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
-            className="md:hidden p-2 rounded-xl bg-white border border-rose-200 text-[#5E4758] hover:text-[#33182B]"
+            className="md:hidden p-2 rounded-xl bg-white border border-purple-200 text-[#554064] hover:text-[#241235]"
           >
             {mobileNavOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
 
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-500 to-pink-500 p-0.5 shadow-md shadow-rose-200">
-              <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center font-bold text-xs text-rose-600 font-serif">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-violet-600 p-0.5 shadow-md shadow-purple-500/20">
+              <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center font-bold text-xs text-purple-700 font-serif">
                 SF
               </div>
             </div>
             <div>
-              <span className="block font-bold text-sm font-serif text-[#3B1E32] tracking-wide">
+              <span className="block font-bold text-sm font-serif text-[#241235] tracking-wide">
                 Studio Foráneas
               </span>
-              <span className="block text-[10px] text-rose-600 font-semibold tracking-wider uppercase">
+              <span className="block text-[10px] text-purple-700 font-semibold tracking-wider uppercase">
                 Panel de Administración
               </span>
             </div>
@@ -135,8 +135,8 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
             onClick={() => setActiveTab('manual')}
             className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
               activeTab === 'manual'
-                ? 'bg-rose-600 text-white border-rose-600 shadow-sm'
-                : 'bg-rose-50/70 hover:bg-rose-100 text-rose-700 border-rose-200'
+                ? 'bg-purple-700 text-white border-rose-600 shadow-sm'
+                : 'bg-purple-50/70 hover:bg-purple-100 text-purple-800 border-purple-200'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
@@ -145,15 +145,15 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
 
           <button
             onClick={onBackToPublicSite}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-rose-50 text-[#5E4758] hover:text-[#33182B] text-xs font-semibold border border-rose-200 transition-colors shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-purple-50 text-[#554064] hover:text-[#241235] text-xs font-semibold border border-purple-200 transition-colors shadow-2xs"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Ver Sitio Web</span>
           </button>
 
-          <div className="flex items-center gap-2 pl-2 border-l border-rose-100">
+          <div className="flex items-center gap-2 pl-2 border-l border-purple-100">
             <div className="hidden lg:block text-right">
-              <span className="block text-xs font-bold text-[#33182B] leading-tight">
+              <span className="block text-xs font-bold text-[#241235] leading-tight">
                 {userProfile?.nombre || 'Administradora'}
               </span>
               <span className="block text-[10px] text-emerald-700 font-medium">
@@ -163,7 +163,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
 
             <button
               onClick={logout}
-              className="p-2 rounded-xl text-[#5E4758] hover:text-rose-600 hover:bg-rose-50 transition-colors"
+              className="p-2 rounded-xl text-[#554064] hover:text-purple-700 hover:bg-purple-50 transition-colors"
               title="Cerrar sesión"
             >
               <LogOut className="w-4 h-4" />
@@ -175,7 +175,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
       {/* Main Layout Body */}
       <div className="flex-1 flex max-w-7xl w-full mx-auto">
         {/* Sidebar Desktop */}
-        <aside className="hidden md:flex flex-col w-64 border-r border-rose-100 p-4 space-y-1.5 shrink-0 bg-[#FFF9FA]">
+        <aside className="hidden md:flex flex-col w-64 border-r border-purple-100 p-4 space-y-1.5 shrink-0 bg-[#FAF8FD]">
           {/* Plan Básico Pill */}
           <div className="p-3 mb-2 rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/90 text-amber-900 text-xs flex items-center gap-2">
             <div className="w-6 h-6 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-xs">
@@ -192,18 +192,18 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
           </div>
 
           {/* Firebase Project Badge */}
-          <div className="p-3 mb-2 rounded-2xl bg-white border border-rose-100/90 text-xs space-y-1 shadow-2xs">
+          <div className="p-3 mb-2 rounded-2xl bg-white border border-purple-100/90 text-xs space-y-1 shadow-2xs">
             <div className="flex items-center justify-between">
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-rose-700 uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-purple-800 uppercase tracking-wider">
                 <Flame className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                 <span>Firebase Conectado</span>
               </span>
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" title="Sincronización activa"></span>
             </div>
-            <div className="text-[11px] font-mono font-bold text-[#33182B] truncate" title={firebaseConfig.projectId}>
+            <div className="text-[11px] font-mono font-bold text-[#241235] truncate" title={firebaseConfig.projectId}>
               {firebaseConfig.projectId}
             </div>
-            <div className="text-[10px] text-[#5E4758]">
+            <div className="text-[10px] text-[#554064]">
               Proyecto: StudioForaneo
             </div>
           </div>
@@ -218,8 +218,8 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                 onClick={() => setActiveTab(item.id)}
                 className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-md shadow-rose-200'
-                    : 'text-[#5E4758] hover:text-[#33182B] hover:bg-white hover:border-rose-100 border border-transparent'
+                    ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-md shadow-purple-500/20'
+                    : 'text-[#554064] hover:text-[#241235] hover:bg-white hover:border-purple-100 border border-transparent'
                 }`}
               >
                 <div className="flex items-center gap-2.5">
@@ -228,7 +228,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                 </div>
                 {item.badge !== undefined && item.badge > 0 && (
                   <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                    isActive ? 'bg-white text-rose-600' : 'bg-rose-600 text-white'
+                    isActive ? 'bg-white text-purple-700' : 'bg-purple-700 text-white'
                   }`}>
                     {item.badge}
                   </span>
@@ -237,10 +237,10 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
             );
           })}
 
-          <div className="pt-6 mt-auto border-t border-rose-100">
+          <div className="pt-6 mt-auto border-t border-purple-100">
             <button
               onClick={onBackToPublicSite}
-              className="w-full flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#5E4758] hover:text-rose-600 hover:bg-white transition-colors"
+              className="w-full flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#554064] hover:text-purple-700 hover:bg-white transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Volver a la web</span>
@@ -251,7 +251,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         {/* Mobile Navigation Drawer */}
         {mobileNavOpen && (
           <div className="md:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm pt-16 p-4">
-            <div className="bg-white rounded-3xl border border-rose-200 p-4 space-y-1.5 shadow-xl">
+            <div className="bg-white rounded-3xl border border-purple-200 p-4 space-y-1.5 shadow-xl">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeTab === item.id;
@@ -265,8 +265,8 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                     }}
                     className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold transition-colors ${
                       isActive
-                        ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white'
-                        : 'text-[#5E4758] hover:text-[#33182B] hover:bg-rose-50'
+                        ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white'
+                        : 'text-[#554064] hover:text-[#241235] hover:bg-purple-50'
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -274,7 +274,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                       <span>{item.label}</span>
                     </div>
                     {item.badge !== undefined && item.badge > 0 && (
-                      <span className="px-2 py-0.5 rounded-full bg-rose-500 text-white text-[10px] font-bold">
+                      <span className="px-2 py-0.5 rounded-full bg-purple-500 text-white text-[10px] font-bold">
                         {item.badge}
                       </span>
                     )}
@@ -282,13 +282,13 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
                 );
               })}
 
-              <div className="pt-3 border-t border-rose-100">
+              <div className="pt-3 border-t border-purple-100">
                 <button
                   onClick={() => {
                     setMobileNavOpen(false);
                     onBackToPublicSite();
                   }}
-                  className="w-full py-2.5 text-center text-xs font-semibold text-rose-600 hover:bg-rose-50 rounded-xl"
+                  className="w-full py-2.5 text-center text-xs font-semibold text-purple-700 hover:bg-purple-50 rounded-xl"
                 >
                   Volver a la Página Web
                 </button>

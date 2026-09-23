@@ -55,23 +55,23 @@ export const UserAccountModal: React.FC<UserAccountModalProps> = ({
   const isPendingAdmin = isAdmin && !isActive;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#3B1E32]/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl border border-rose-100 overflow-hidden flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#241235]/60 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl border border-purple-100 overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="p-6 bg-gradient-to-br from-rose-50 via-[#FFF9FA] to-pink-50/50 border-b border-rose-100 flex items-start justify-between">
+        <div className="p-6 bg-gradient-to-br from-rose-50 via-[#FAF8FD] to-pink-50/50 border-b border-purple-100 flex items-start justify-between">
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-500 p-0.5 shadow-md shadow-rose-200 shrink-0">
-              <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center font-bold text-rose-600 text-lg uppercase font-serif">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 to-violet-600 p-0.5 shadow-md shadow-purple-500/20 shrink-0">
+              <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center font-bold text-purple-700 text-lg uppercase font-serif">
                 {userProfile.nombre ? userProfile.nombre[0] : (userProfile.email ? userProfile.email[0] : 'U')}
               </div>
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-bold font-serif text-[#3B1E32]">
+                <h3 className="text-base font-bold font-serif text-[#241235]">
                   {userProfile.nombre || 'Usuario'}
                 </h3>
                 {isFullAdmin && (
-                  <span className="px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 border border-rose-200 text-[10px] font-extrabold uppercase tracking-wide">
+                  <span className="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 border border-purple-200 text-[10px] font-extrabold uppercase tracking-wide">
                     Admin
                   </span>
                 )}
@@ -86,7 +86,7 @@ export const UserAccountModal: React.FC<UserAccountModalProps> = ({
                   </span>
                 )}
               </div>
-              <p className="text-xs text-[#5C4054] truncate max-w-[220px]">
+              <p className="text-xs text-[#554064] truncate max-w-[220px]">
                 {userProfile.email}
               </p>
             </div>
@@ -104,17 +104,17 @@ export const UserAccountModal: React.FC<UserAccountModalProps> = ({
         <div className="p-6 space-y-4">
           {/* MÓDULO EXCLUSIVO PARA ADMINISTRADORES */}
           {isFullAdmin && (
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-rose-600 via-pink-600 to-rose-700 text-white shadow-lg shadow-rose-200 space-y-2">
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-rose-600 via-pink-600 to-rose-700 text-white shadow-lg shadow-purple-500/20 space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-rose-200" />
+                  <ShieldCheck className="w-5 h-5 text-purple-200" />
                   <span className="font-bold text-sm tracking-wide">Módulo Administrador</span>
                 </div>
                 <span className="text-[10px] bg-white/20 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">
                   Acceso Total
                 </span>
               </div>
-              <p className="text-xs text-rose-100 leading-relaxed">
+              <p className="text-xs text-purple-100 leading-relaxed">
                 Tienes permisos de administración activos para gestionar cotizaciones, servicios, fotos y usuarios.
               </p>
               <button
@@ -122,7 +122,7 @@ export const UserAccountModal: React.FC<UserAccountModalProps> = ({
                   onClose();
                   onEnterAdmin();
                 }}
-                className="w-full mt-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white text-rose-600 hover:bg-rose-50 font-bold text-xs shadow-md transition-all cursor-pointer"
+                className="w-full mt-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white text-purple-700 hover:bg-purple-50 font-bold text-xs shadow-md transition-all cursor-pointer"
               >
                 <LayoutDashboard className="w-4 h-4" />
                 <span>Entrar al Panel Administrador</span>
@@ -152,24 +152,24 @@ export const UserAccountModal: React.FC<UserAccountModalProps> = ({
                 onClose();
                 onOpenRequests();
               }}
-              className="w-full p-3.5 rounded-2xl bg-[#FFF9FA] hover:bg-rose-50/70 border border-rose-100 flex items-center justify-between text-left transition-all cursor-pointer group"
+              className="w-full p-3.5 rounded-2xl bg-[#FAF8FD] hover:bg-purple-50/70 border border-purple-100 flex items-center justify-between text-left transition-all cursor-pointer group"
             >
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-white border border-rose-200 flex items-center justify-center text-rose-600 shadow-2xs group-hover:bg-rose-600 group-hover:text-white transition-colors">
+                <div className="w-9 h-9 rounded-xl bg-white border border-purple-200 flex items-center justify-center text-purple-700 shadow-2xs group-hover:bg-purple-700 group-hover:text-white transition-colors">
                   <FileText className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="block text-xs font-bold text-[#3B1E32]">
+                  <span className="block text-xs font-bold text-[#241235]">
                     Mis Solicitudes de Cotización
                   </span>
-                  <span className="block text-[11px] text-[#5C4054]">
+                  <span className="block text-[11px] text-[#554064]">
                     {requestsCount !== null
                       ? `${requestsCount} solicitud${requestsCount === 1 ? '' : 'es'} registrada${requestsCount === 1 ? '' : 's'}`
                       : 'Consultar estado de tus proyectos'}
                   </span>
                 </div>
               </div>
-              <ChevronRight className="w-4 h-4 text-stone-400 group-hover:text-rose-600 transition-colors" />
+              <ChevronRight className="w-4 h-4 text-stone-400 group-hover:text-purple-700 transition-colors" />
             </button>
 
             {/* Solicitar nueva cotización */}
@@ -178,27 +178,27 @@ export const UserAccountModal: React.FC<UserAccountModalProps> = ({
                 onClose();
                 onRequestNewQuote();
               }}
-              className="w-full p-3.5 rounded-2xl bg-white hover:bg-rose-50/40 border border-stone-100 flex items-center justify-between text-left transition-all cursor-pointer group"
+              className="w-full p-3.5 rounded-2xl bg-white hover:bg-purple-50/40 border border-stone-100 flex items-center justify-between text-left transition-all cursor-pointer group"
             >
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-500">
+                <div className="w-9 h-9 rounded-xl bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-600">
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="block text-xs font-bold text-[#3B1E32]">
+                  <span className="block text-xs font-bold text-[#241235]">
                     Solicitar Nueva Cotización
                   </span>
-                  <span className="block text-[11px] text-[#5C4054]">
+                  <span className="block text-[11px] text-[#554064]">
                     Bodas, eventos, reels o contenido
                   </span>
                 </div>
               </div>
-              <ChevronRight className="w-4 h-4 text-stone-400 group-hover:text-rose-600 transition-colors" />
+              <ChevronRight className="w-4 h-4 text-stone-400 group-hover:text-purple-700 transition-colors" />
             </button>
           </div>
 
           {/* Información del Perfil */}
-          <div className="p-3.5 rounded-2xl bg-stone-50 border border-stone-100 space-y-2 text-xs text-[#5C4054]">
+          <div className="p-3.5 rounded-2xl bg-stone-50 border border-stone-100 space-y-2 text-xs text-[#554064]">
             <div className="flex items-center justify-between text-[11px]">
               <span className="text-stone-500">Estado de cuenta:</span>
               <span className="inline-flex items-center gap-1 font-bold text-emerald-700">
@@ -225,15 +225,15 @@ export const UserAccountModal: React.FC<UserAccountModalProps> = ({
         <div className="p-4 bg-stone-50/80 border-t border-stone-100 flex items-center justify-between">
           <button
             onClick={handleLogout}
-            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold text-rose-700 hover:text-rose-800 hover:bg-rose-100/60 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold text-purple-800 hover:text-purple-900 hover:bg-purple-100/60 transition-colors cursor-pointer"
           >
-            <LogOut className="w-4 h-4 text-rose-600" />
+            <LogOut className="w-4 h-4 text-purple-700" />
             <span>Cerrar Sesión</span>
           </button>
 
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-[#3B1E32] text-xs font-semibold cursor-pointer transition-colors"
+            className="px-4 py-2 rounded-xl bg-white border border-stone-200 hover:bg-stone-100 text-[#241235] text-xs font-semibold cursor-pointer transition-colors"
           >
             Aceptar
           </button>

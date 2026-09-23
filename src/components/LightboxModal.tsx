@@ -20,15 +20,15 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({ item, onClose }) =
     >
       <div
         onClick={e => e.stopPropagation()}
-        className="relative max-w-5xl w-full max-h-[92vh] flex flex-col rounded-3xl bg-white border border-rose-200 shadow-2xl overflow-hidden"
+        className="relative max-w-5xl w-full max-h-[92vh] flex flex-col rounded-3xl bg-white border border-purple-200 shadow-2xl overflow-hidden"
       >
         {/* Top bar with close button */}
-        <div className="p-4 px-6 border-b border-rose-100 flex items-center justify-between bg-[#FFF5F7]">
+        <div className="p-4 px-6 border-b border-purple-100 flex items-center justify-between bg-[#FAF8FD]">
           <div className="flex items-center gap-2">
-            <span className="px-3 py-0.5 rounded-full bg-rose-600 text-white text-[10px] font-bold uppercase tracking-wider">
+            <span className="px-3 py-0.5 rounded-full bg-purple-700 text-white text-[10px] font-bold uppercase tracking-wider">
               {item.categoria}
             </span>
-            <span className="text-xs text-rose-700 font-semibold hidden sm:inline">
+            <span className="text-xs text-purple-800 font-semibold hidden sm:inline">
               Studio Foráneas • Fotografía
             </span>
           </div>
@@ -38,7 +38,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({ item, onClose }) =
               href={item.imagenUrl}
               target="_blank"
               rel="noreferrer"
-              className="p-2 rounded-full text-[#6B5365] hover:text-rose-600 hover:bg-rose-100 transition-colors"
+              className="p-2 rounded-full text-[#6B5365] hover:text-purple-700 hover:bg-purple-100 transition-colors"
               title="Abrir imagen original"
             >
               <ExternalLink className="w-4 h-4" />
@@ -46,7 +46,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({ item, onClose }) =
             <button
               onClick={onClose}
               aria-label="Cerrar modal"
-              className="p-2 rounded-full text-[#6B5365] hover:text-[#33182B] hover:bg-rose-100 transition-colors"
+              className="p-2 rounded-full text-[#6B5365] hover:text-[#241235] hover:bg-purple-100 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -63,9 +63,9 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({ item, onClose }) =
         </div>
 
         {/* Bottom Details Bar */}
-        <div className="p-5 px-6 border-t border-rose-100 bg-[#FFF9FA] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <div className="p-5 px-6 border-t border-purple-100 bg-[#FAF8FD] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
           <div className="space-y-1">
-            <h4 className="text-base font-bold font-serif text-[#33182B]">
+            <h4 className="text-base font-bold font-serif text-[#241235]">
               {item.titulo}
             </h4>
             {item.descripcion && (
@@ -77,7 +77,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({ item, onClose }) =
 
           {item.fecha && (
             <div className="flex items-center gap-1.5 text-[#8A6D81] shrink-0 font-medium">
-              <Calendar className="w-3.5 h-3.5 text-rose-600" />
+              <Calendar className="w-3.5 h-3.5 text-purple-700" />
               <span>{item.fecha}</span>
             </div>
           )}
