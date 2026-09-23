@@ -937,6 +937,42 @@ export const AdminConfig: React.FC<AdminConfigProps> = ({ config, onSaveConfig }
               />
             </div>
 
+            {/* Columna de Servicios del Footer */}
+            <div className="space-y-4 pt-3 border-t border-purple-100">
+              <h4 className="text-xs font-bold font-serif text-[#241235] uppercase tracking-wider">
+                Columna de Servicios en el Footer (Pie de Página)
+              </h4>
+
+              <div className="space-y-1.5">
+                <label className="block text-xs font-bold text-[#241235]">
+                  Título de la Columna
+                </label>
+                <input
+                  type="text"
+                  value={formData.footerServiciosTitulo || ''}
+                  onChange={e => setFormData({ ...formData, footerServiciosTitulo: e.target.value })}
+                  placeholder="Servicios"
+                  className="w-full p-2.5 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-600 focus:outline-none"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="block text-xs font-bold text-[#241235]">
+                  Lista de Servicios del Footer (Un servicio por línea)
+                </label>
+                <textarea
+                  rows={4}
+                  value={formData.footerServiciosLista || ''}
+                  onChange={e => setFormData({ ...formData, footerServiciosLista: e.target.value })}
+                  placeholder="Creación de Contenido para Redes Sociales&#10;Cobertura en Vivo para Bodas & Eventos&#10;Full Day Shoot & Campañas Comerciales&#10;Reels Dinámicos & Producción Audiovisual"
+                  className="w-full p-3 rounded-xl bg-[#FAF8FD] border border-purple-200 text-[#241235] text-xs focus:border-purple-600 focus:outline-none leading-relaxed"
+                />
+                <span className="text-[11px] text-[#725C80] block">
+                  * Escribe cada servicio que ofreces en una línea diferente. Si lo dejas vacío, mostrará automáticamente los servicios que tengas publicados en la sección de Servicios.
+                </span>
+              </div>
+            </div>
+
             <div className="space-y-1.5 pt-2 border-t border-purple-50">
               <label className="block text-xs font-bold text-[#241235]">
                 Texto de Derechos Reservados / Copyright (Footer)

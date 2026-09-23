@@ -1,17 +1,34 @@
 import React from 'react';
 import { Camera, Mail, Phone, MapPin, Instagram, Facebook, Video, Youtube, Lock, Sparkles, MessageCircle, Clock } from 'lucide-react';
-import { SiteConfig } from '../types';
+import { SiteConfig, ServiceItem } from '../types';
 
 interface FooterProps {
   config: SiteConfig;
+  services?: ServiceItem[];
   onOpenAdmin: () => void;
   onRequestQuote: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ config, onOpenAdmin, onRequestQuote }) => {
+export const Footer: React.FC<FooterProps> = ({ config, services = [], onOpenAdmin, onRequestQuote }) => {
   const phone1 = config.whatsappPrincipal || '+51997534727';
   const phone2 = config.whatsappSecundario || '+51947718479';
   const cleanPhone1 = phone1.replace(/\D/g, '');
+
+  // Calculate footer services list: either custom text from config or published services
+  const customList = config.footerServiciosLista
+    ? config.footerServiciosLista.split('\n').map(s => s.trim()).filter(Boolean)
+    : [];
+
+  const footerServices = customList.length > 0
+    ? customList
+    : services.length > 0
+    ? services.filter(s => s.publicado).map(s => s.nombre)
+    : [
+        'Creación de Contenido para Redes Sociales',
+        'Cobertura en Vivo para Bodas & Eventos',
+        'Full Day Shoot & Campañas Comerciales',
+        'Reels Dinámicos & Producción Audiovisual'
+      ];
 
   return (
     <footer id="contacto" className="bg-[#F8F5FD] border-t border-purple-100 text-[#554064]">
@@ -131,34 +148,16 @@ export const Footer: React.FC<FooterProps> = ({ config, onOpenAdmin, onRequestQu
         {/* Col 2: Servicios Rápidos */}
         <div className="space-y-3">
           <h4 className="text-xs font-bold uppercase tracking-widest text-[#241235]">
-            Servicios
+            {config.footerServiciosTitulo || 'Servicios'}
           </h4>
           <ul className="space-y-2 text-xs">
-            <li>
-              <a href="#servicios" className="hover:text-purple-700 transition-colors">
-                Creación de Contenido para Redes
-              </a>
-            </li>
-            <li>
-              <a href="#servicios" className="hover:text-purple-700 transition-colors">
-                Cobertura en Vivo para Bodas
-              </a>
-            </li>
-            <li>
-              <a href="#servicios" className="hover:text-purple-700 transition-colors">
-                Eventos Corporativos & Ferias
-              </a>
-            </li>
-            <li>
-              <a href="#servicios" className="hover:text-purple-700 transition-colors">
-                Full Day Shoot & Reels Dinámicos
-              </a>
-            </li>
-            <li>
-              <a href="#portafolio" className="hover:text-purple-700 transition-colors">
-                Galería de Fotografías
-              </a>
-            </li>
+            {footerServices.map((serviceName, idx) => (
+              <li key={idx}>
+                <a href="#servicios" className="hover:text-purple-700 transition-colors block">
+                  {serviceName}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 

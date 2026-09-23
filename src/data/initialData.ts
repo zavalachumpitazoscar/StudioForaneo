@@ -74,6 +74,8 @@ export const INITIAL_SITE_CONFIG: SiteConfig = {
   // Footer & Banner
   footerCtaTitulo: '¿Lista para impulsar tu marca o inmortalizar tu evento?',
   footerCtaSubtitulo: 'Conversemos hoy mismo para diseñar un plan audiovisual y estratégico hecho a tu medida.',
+  footerServiciosTitulo: 'Servicios',
+  footerServiciosLista: 'Creación de Contenido para Redes Sociales\nCobertura en Vivo para Bodas & Eventos\nFull Day Shoot & Campañas Comerciales\nReels Dinámicos & Producción Audiovisual',
   footerTexto: '© 2026 Studio Foráneas. Todos los derechos reservados. Diseñado para marcas y creadores.'
 };
 

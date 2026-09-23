@@ -156,5 +156,7 @@ export interface SiteConfig {
   // Footer & Banner Inferior
   footerCtaTitulo?: string;
   footerCtaSubtitulo?: string;
+  footerServiciosTitulo?: string;
+  footerServiciosLista?: string;
   footerTexto: string;
 }

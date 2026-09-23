@@ -395,6 +395,7 @@ function AppContent() {
       {/* 8. Footer */}
       <Footer
         config={config}
+        services={services}
         onOpenAdmin={handleOpenAdmin}
         onRequestQuote={() => handleOpenRequestQuote()}
       />
